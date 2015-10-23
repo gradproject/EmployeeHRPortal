@@ -1,0 +1,45 @@
+body {
+	margin : 0px;
+	padding :  0px;
+	background-color :  #FAFAFA;
+}
+
+.topTable {
+	margin : 0px;
+	padding :  0px;
+}
+
+.mainDivStyle {
+	background-color : #FFFFFF;
+	width : 800px;
+	height : 485px;
+	padding : 0px;
+	margin : 0px;
+}
+.contentDivStyle {
+	top : 35px;
+	width : 800px
+}
+.titleStyles{
+	padding-left:300px;
+	padding-top:30px;
+	padding-bottom:40px;
+	height:10px;
+	width:50%;
+	font-family: verdana;
+	font-size :  25px;
+	font-style :  normal;
+	font-variant :  small-caps;
+	font-weight :  BOLD;
+	line-height :  25px;
+	color: #424242;
+}
+.formStyle {
+	font-family: verdana;
+	font-size :  12px;
+	font-style :  normal;
+	font-variant :  normal;
+	font-weight :  normal;
+	line-height :  12px;
+	color: #A4A4A4;
+}

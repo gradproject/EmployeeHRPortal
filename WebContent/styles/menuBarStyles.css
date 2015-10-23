@@ -1,0 +1,58 @@
+.menuBarStyle {
+	background-color : #0B0B61;
+	height : 35px;
+	width : 800px;
+	top : 0px;
+	align : left;
+	padding : 0px;
+	margin : 0px;
+	border-top :  solid 1px #FFFF00;
+	border-bottom :  solid 0.5px #FAFAFA;
+}
+.menuBarStyle ul{
+	padding : 0px;
+	margin : 0px;
+	height : 35px;
+	list-style : none;
+}
+.menuBarStyle ul li{
+	padding-left : 15px;
+	padding-right : 10px;
+	padding-top : 0px;
+	padding-bottom : 0px;
+	margin : 0px;
+	width : 30px;
+	height : 35px;
+	display : inline;
+	border-right :  solid 1px #FFFF00;
+}
+.menuBarStyle ul li a{
+	padding-top : 10px;
+	padding-bottom : 10px;
+	color :  #ffffff;
+	text-decoration :  none;
+	display :  inline-block;
+	font-family :  Georgia, 'Times New Roman', Times, serif;
+	font-size :  15px;
+	font-style :  normal;
+	font-variant :  normal;
+	font-weight :  normal;
+	height :  15px;
+	line-height :  15px;
+	cursor : pointer;
+}
+.menuBarStyle ul li a:hover {
+	padding-top : 10px;
+	padding-bottom : 10px;
+	color :  #FFFF00;
+	text-decoration :  none;
+	display :  inline-block;
+	display :  inline-block;
+	font-family :  Georgia, 'Times New Roman', Times, serif;
+	font-size :  15px;
+	font-style :  normal;
+	font-variant :  normal;
+	font-weight :  bold;
+	height :  15px;
+	line-height :  15px;
+}

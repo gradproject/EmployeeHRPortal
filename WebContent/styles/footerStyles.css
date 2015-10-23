@@ -1,0 +1,18 @@
+.footerStyle {
+	height : 100px;
+	width : 800px;
+	background-color : #FFFF00;
+}
+.footerContentDivStyle{
+	width : 800px;
+	height : 100px;
+	border-top : 1px solid #567daa;
+}
+.footer-text-style {
+	font-family :  Verdana, Geneva, sans-serif;
+	font-size :  12px;
+	font-weight :  bold;
+	line-height :  20px;
+	color :  #00000 important;
+	margin :  5px;
+}
