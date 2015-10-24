@@ -12,12 +12,12 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Employee HR Portal</a>
+			<a class="navbar-brand" href="#">Employee Connect</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/EmployeeHRPortal/index.html">Home</a></li>
+				<li class="active"><a href="#">Home</a></li>
 
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -46,7 +46,7 @@
 								Department</a></li>
 						<li><a href="/EmployeeHRPortal/IntialiseEmpProjectData">Assign
 								Employee to Project</a></li>
-								<li><a href="/EmployeeHRPortal/ListEmployeeByProject?projectId=9990">List
+								<li><a href="/EmployeeHRPortal/ListEmployeeByProject?projectId=1235">List
 								Employee By Project</a></li>
 
 					</ul></li>
@@ -76,7 +76,7 @@
 				<!--  	<li><a href="#">Dashboard</a></li> -->
 				<li><a href="#">Settings</a></li>
 				<!--  <li><a href="#">Profile</a></li> -->
-				<li><a href="/EmployeeHRPortal/index.html">Help</a></li>
+				<li><a href="#">Help</a></li>
 			</ul>
 			<form class="navbar-form navbar-right">
 				<input kl_virtual_keyboard_secure_input="on" class="form-control"
