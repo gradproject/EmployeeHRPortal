@@ -32,7 +32,7 @@
 						<li><a href="/EmployeeHRPortal/EmployeeListServlet">List
 								Employees</a></li>
 						
-						<li><a href="/EmployeeHRPortal/jsp/enterTimeSheet.jsp">Enter
+						<li><a href="/EmployeeHRPortal/InitalizeTimeSheet">Enter
 								Time Sheet</a></li>
 					</ul></li>
 

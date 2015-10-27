@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,12 +35,12 @@
 .timesheettable > tbody > tr > td {
 	padding:0px !important;
 	margin:0px !important;
-	width:65px !important;
+	width:85px !important;
 	text-align: center;
 }
 
 .timesheettable > tbody > tr > td:first-child {
-	width:350px !important;
+	width:300px !important;
 	padding-left:8px !important;
 	padding-right:8px !important;
 	padding-top:0px !important;
@@ -182,18 +184,36 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				
 				<h2 class="sub-header">Time Sheet</h2>
+				<div class="row">
+				  <div class="col-xs-6 col-md-4">
+				  	<a href="/EmployeeHRPortal/InitalizeTimeSheet?weekIncrement=-1">
+					  	<button type="button" class="btn btn-primary pull-left ">
+					  		<i class="glyphicon glyphicon-chevron-left"></i>&nbsp;Previous Week
+					  	</button>
+				  	</a>	
+				  </div>
+				  <div class="col-xs-6 col-md-4">&nbsp;</div>
+				  <div class="col-xs-6 col-md-4">
+				  	<a href="/EmployeeHRPortal/InitalizeTimeSheet?weekIncrement=1">
+				  		<button type="button" class="btn btn-primary pull-right">Next Week&nbsp;<i class="glyphicon glyphicon-chevron-right"></i></button>
+				  	</a>
+				  </div>
+				</div>
+				<div class="row">&nbsp;</div>
 				<div class="table-responsive">
 					<table id="timescheettalble" class="timesheettable table table-bordered" style="margin: 0px !important;">
 						<thead>
 							<tr>
 								<th >Project Name</th>
-								<th >Sun 18</th>
-								<th >Mon 19</th>
-								<th >Tue 20</th>
-								<th >Wed 21</th>
-								<th >Thr 22</th>
-								<th >Fri 23</th>
-								<th >Sat 24</th>
+								<th >Sun 
+									<c:out value="${sunday}"></c:out>
+								</th>
+								<th >Mon <c:out value="${monday}"></c:out></th>
+								<th >Tue <c:out value="${tuesday}"></c:out></th>
+								<th >Wed <c:out value="${wednesday}"></c:out></th>
+								<th >Thr <c:out value="${thursday}"></c:out></th>
+								<th >Fri <c:out value="${friday}"></c:out></th>
+								<th >Sat <c:out value="${saturday}"></c:out></th>
 								<th >Total</th>
 							</tr>
 						</thead>

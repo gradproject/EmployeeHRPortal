@@ -164,4 +164,14 @@
     <servlet-name>AdminLoginServlet</servlet-name>
     <url-pattern>/AdminLoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InitalizeTimeSheet</display-name>
+    <servlet-name>InitalizeTimeSheet</servlet-name>
+    <servlet-class>com.gsu.servlet.InitalizeTimeSheet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitalizeTimeSheet</servlet-name>
+    <url-pattern>/InitalizeTimeSheet</url-pattern>
+  </servlet-mapping>
 </web-app>
