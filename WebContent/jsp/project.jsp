@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	String successMessage = (String) request
+			.getAttribute("successMessage");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +16,12 @@
 
 <body>
 
-	<%@ include file="includes/navBar.jsp"%>
 
+	<%@ include file="includes/navBar.jsp"%>
+	
 	<div class="container theme-showcase" role="main">
+	
+	<%@ include file="includes/messagePopup.jsp"%>
 
 		<div class="row read-only---" style="padding-top: -20px;">
 
@@ -46,7 +53,8 @@
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Project ID</label>
+												<label class="control-label" for="inputUserType1">Project
+													ID</label>
 											</div>
 											<div class="col-sm-10  pull-left">
 												<input kl_virtual_keyboard_secure_input="on" name="prjId"
@@ -63,11 +71,12 @@
 									<div class="col-md-8">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Project Name</label>
+												<label class="control-label" for="inputUserType1">Project
+													Name</label>
 											</div>
 											<div class="col-sm-12  pull-left">
-												<input kl_virtual_keyboard_secure_input="on"
-													id="prjName" name="prjName"
+												<input kl_virtual_keyboard_secure_input="on" id="prjName"
+													name="prjName"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="250" required="required" type="text">
 											</div>

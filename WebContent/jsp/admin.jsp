@@ -6,12 +6,12 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - Create New Department</title>
+<title>Employee HR Portal - Create New Admin</title>
 
 </head>
 
 <body>
-<h3>Hello World</h3>
+
 	<%@ include file="includes/navBar.jsp"%>
 
 	<div class="container theme-showcase" role="main">
@@ -22,7 +22,7 @@
 
 				<div class="page-header--">
 
-					<h3>Create New Department</h3>
+					<h3>Create New Admin</h3>
 
 				</div>
 				<!-- /page-header-- -->
@@ -34,42 +34,53 @@
 					<div class="panel panel-default ">
 
 						<div class="panel-heading ">
-							<h3 class="panel-title">Department Information</h3>
+							<h3 class="panel-title">Admin Information</h3>
 						</div>
 
 						<div class="panel-body">
 
-							<form id="departmentForm" name="departmentForm"
-								action="/EmployeeHRPortal/DepartmentServlet" method="post"
+							<form id="adminForm" name="adminForm"
+								action="/EmployeeHRPortal/AdminServlet" method="post"
 								role="form">
-								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group pull-left">
-											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Department ID</label>
-											</div>
-											<div class="col-sm-10  pull-left">
-												<input kl_virtual_keyboard_secure_input="on" name="deptId"
-													id="deptId" class="form-control fixed_size_inputs input-sm"
-													maxlength="20" required="required" type="text">
-
-											</div>
-										</div>
-									</div>
-									<div class="col-md-4"></div>
-									<div class="col-md-4"></div>
+								
 								</div>
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Department Name</label>
+												<label class="control-label" for="inputUserType1">Admin User Name</label>
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on"
-													id="deptName" name="deptName"
+													id="adminUserName" name="adminUserName"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="250" required="required" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Password</label>
+											</div>
+											<div class="col-sm-12  pull-left">
+												<input type="password" id="password" name="password"
+													value="" class="form-control fixed_size_inputs input-sm"
+													maxlength="50" required="required" type="password" />
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Re-enter
+													Password</label>
+											</div>
+											<div class="col-sm-10  pull-left">
+												<input type="password" id="reEnterPassword"
+													name="reEnterPassword" value=""
+													class="form-control fixed_size_inputs input-sm"
+													maxlength="50" required="required" type="password" />
 											</div>
 										</div>
 									</div>

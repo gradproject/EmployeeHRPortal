@@ -18,6 +18,9 @@
 
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
+				
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="/EmployeeHRPortal/jsp/adminLogin.jsp">Admin</a></li>
 
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
