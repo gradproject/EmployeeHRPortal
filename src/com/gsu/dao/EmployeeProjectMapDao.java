@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gsu.bean.Employee;
+import com.gsu.bean.Project;
 
 public class EmployeeProjectMapDao {
 
@@ -97,8 +98,8 @@ public class EmployeeProjectMapDao {
 			statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(selectQuery);
 
-			 employeeList = new ArrayList<Employee>();
-			
+			employeeList = new ArrayList<Employee>();
+
 			while (rs.next()) {
 				Employee employeeObj = new Employee();
 				employeeObj.setEmpId(rs.getString("emp_id"));
@@ -110,14 +111,87 @@ public class EmployeeProjectMapDao {
 		} catch (SQLException e) {
 			System.out.println("SQLException while creating statement :: "
 					+ e.getMessage());
+		} finally {
+			if (statement == null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					System.out
+							.println("SQLException occured while closing statement :: "
+									+ e.getMessage());
+				}
+
+			}
+			if (connection == null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					System.out
+							.println("SQLException occured while closing connection :: "
+									+ e.getMessage());
+				}
+
+			}
 		}
 
 		return employeeList;
 	}
-	
+
+	public List<Project> selectProjectsByEmployee(String empId) {
+		Connection connection = getConnection();
+		Statement statement = null;
+		List<Project> projectList = null;
+
+		try {
+			statement = connection.createStatement();
+			String selectQuery = "select p.project_name, p.project_id from employee_jobs_portal.dbo.project as p, employee_jobs_portal.dbo.emp_project_map as ep where p.project_id = ep.project_id and ep.emp_id = '"
+					+ empId + "';";
+
+			ResultSet rs = statement.executeQuery(selectQuery);
+			projectList = new ArrayList<Project>();
+			while (rs.next()) {
+				Project projectObj = new Project();
+				projectObj.setProjectId(rs.getString("project_id"));
+				projectObj.setProjectName(rs.getString("project_name"));
+				projectList.add(projectObj);
+			}
+		} catch (SQLException e) {
+			System.out.println("SQLException while creating statement "
+					+ e.getMessage());
+		} finally {
+			if (statement == null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					System.out
+							.println("SQLException occured while closing statement :: "
+									+ e.getMessage());
+				}
+
+			}
+			if (connection == null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					System.out
+							.println("SQLException occured while closing connection :: "
+									+ e.getMessage());
+				}
+
+			}
+		}
+
+		return projectList;
+	}
+
 	public static void main(String[] args) {
 		EmployeeProjectMapDao obj = new EmployeeProjectMapDao();
-		List<Employee> empList = obj.selectEmployeesByProject("1235");
-		System.out.println(empList.toString());
+//		List<Employee> empList = obj.selectEmployeesByProject("1235");
+//		System.out.println(empList.toString());
+		
+		List<Project> prjList = obj.selectProjectsByEmployee("njyothi");
+		System.out.println(prjList.toString());
+		
+		
 	}
 }

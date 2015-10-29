@@ -8,6 +8,7 @@ public class WeekDays {
 
 	int year;
 	int weekOfYear;
+	String dateFormat;
 	
 	String sunday;
 	String monday;
@@ -23,6 +24,7 @@ public class WeekDays {
 		calendar.setTime(trialTime);
 		this.weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
 		this.year = calendar.get(Calendar.YEAR);
+		this.dateFormat = "YYYY-MM-dd";
 		initializeDays();
 	}
 	
@@ -32,13 +34,24 @@ public class WeekDays {
 		calendar.setTime(trialTime);
 		this.weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR) + currentWeek;
 		this.year = calendar.get(Calendar.YEAR);
-		
+		this.dateFormat = "YYYY-MM-dd";
+		initializeDays();
+	}
+	
+	public WeekDays(int currentWeek, String dateFormat){
+		Calendar calendar = Calendar.getInstance();
+		Date trialTime = new Date();
+		calendar.setTime(trialTime);
+		this.weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR) + currentWeek;
+		this.year = calendar.get(Calendar.YEAR);
+		this.dateFormat = dateFormat;
 		initializeDays();
 	}
 	
 	public WeekDays(int weekOfYear, int year){
 		this.weekOfYear = weekOfYear;
 		this.year = year;
+		this.dateFormat = "YYYY-MM-dd";
 		initializeDays();
 	}
 	
@@ -63,7 +76,7 @@ public class WeekDays {
 	}
 	
 	private String getDateValue(int dayOfWeek){
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.WEEK_OF_YEAR, weekOfYear);        
