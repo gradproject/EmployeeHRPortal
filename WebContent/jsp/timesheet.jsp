@@ -192,7 +192,7 @@
 					  	</button>
 				  	</a>	
 				  </div>
-				  <div class="col-xs-6 col-md-4">&nbsp;</div>
+				  <div class="col-xs-6 col-md-4" style="text-align: center; padding: 5px;">Week Starting &nbsp; <c:out value="${startDate}"></c:out></div>
 				  <div class="col-xs-6 col-md-4">
 				  	<a href="/EmployeeHRPortal/InitalizeTimeSheet?weekIncrement=1">
 				  		<button type="button" class="btn btn-primary pull-right">Next Week&nbsp;<i class="glyphicon glyphicon-chevron-right"></i></button>
@@ -204,17 +204,17 @@
 					<table id="timescheettalble" class="timesheettable table table-bordered" style="margin: 0px !important;">
 						<thead>
 							<tr>
-								<th >Project Name</th>
-								<th >Sun 
+								<th>Project Name</th>
+								<th>Sun 
 									<c:out value="${sunday}"></c:out>
 								</th>
-								<th >Mon <c:out value="${monday}"></c:out></th>
-								<th >Tue <c:out value="${tuesday}"></c:out></th>
-								<th >Wed <c:out value="${wednesday}"></c:out></th>
-								<th >Thr <c:out value="${thursday}"></c:out></th>
-								<th >Fri <c:out value="${friday}"></c:out></th>
-								<th >Sat <c:out value="${saturday}"></c:out></th>
-								<th >Total</th>
+								<th>Mon <c:out value="${monday}"></c:out></th>
+								<th>Tue <c:out value="${tuesday}"></c:out></th>
+								<th>Wed <c:out value="${wednesday}"></c:out></th>
+								<th>Thr <c:out value="${thursday}"></c:out></th>
+								<th>Fri <c:out value="${friday}"></c:out></th>
+								<th>Sat <c:out value="${saturday}"></c:out></th>
+								<th>Total</th>
 							</tr>
 						</thead>
 						<tbody>

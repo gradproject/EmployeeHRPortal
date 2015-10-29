@@ -52,6 +52,16 @@ public class WeekDays {
 		setSaturday(getDateValue(Calendar.SATURDAY));
 	}
 	
+	public String getStartDateValue(){
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.WEEK_OF_YEAR, weekOfYear);        
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		String date = sdf.format(cal.getTime());
+		return date;
+	}
+	
 	private String getDateValue(int dayOfWeek){
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
 		Calendar cal = Calendar.getInstance();
@@ -128,6 +138,8 @@ public class WeekDays {
 		WeekDays weekDays = new WeekDays();
 		
 		System.out.println(weekDays);
+		
+		System.out.println(weekDays.getStartDateValue());
 	}
 
 }

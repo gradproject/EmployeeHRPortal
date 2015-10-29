@@ -35,6 +35,8 @@ public class InitalizeTimeSheet extends HttpServlet {
 		
 		String currentWeek = (String)session.getAttribute("currentWeek");
 		
+		System.out.println("currentWeek = " + currentWeek);
+		
 		if(currentWeek == null) currentWeek = "0";
 		
 		int weekInc = Integer.parseInt(weekIncrement);
@@ -43,7 +45,7 @@ public class InitalizeTimeSheet extends HttpServlet {
 		
 		curWeek = curWeek + weekInc;
 		
-		session.setAttribute(currentWeek, Integer.toString(curWeek));
+		session.setAttribute("currentWeek", Integer.toString(curWeek));
 		
 		
 		WeekDays weekDays = new WeekDays(curWeek);
@@ -55,6 +57,8 @@ public class InitalizeTimeSheet extends HttpServlet {
 		request.setAttribute("thursday", weekDays.getThursday());
 		request.setAttribute("friday", weekDays.getFriday());
 		request.setAttribute("saturday", weekDays.getSaturday());
+		
+		request.setAttribute("startDate", weekDays.getStartDateValue());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/timesheet.jsp");
 		rd.forward(request, response);
