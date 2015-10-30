@@ -19,6 +19,8 @@
 		<div class="row read-only---" style="padding-top: -20px;">
 
 			<div class="col-lg-12">
+			
+			<%@ include file="includes/messagePopup.jsp"%>
 
 				<div class="page-header--">
 
@@ -38,22 +40,33 @@
 						</div>
 
 						<div class="panel-body">
-
+							
 							<form id="" name=""
 								action="/EmployeeHRPortal/AssignEmployeeProject" method="post"
 								role="form">
-								
+
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Employee Id</label>
+												<label class="control-label" for="inputUserType1">Employee
+													Id</label>
 											</div>
 											<div class="col-sm-12  pull-left">
-												<input kl_virtual_keyboard_secure_input="on"
-													id="empId" name="empId"
-													class="form-control fixed_size_inputs input-sm"
-													maxlength="250" required="required" type="text">
+
+												<select name="empId" id="empId"
+													class="form-control pull-left input-sm">
+													<!--  the c forEach tag is accepting the list object through items attribute
+						it is iterating the data over the list and then storing each object in the department variable  -->
+													<c:forEach items="${empList}" var="emp">
+														<option value="<c:out value ="${emp.empId}"/>"><c:out
+																value="${emp.empFirstName}" /></option>
+													</c:forEach>
+												</select>
+												<!-- 												<input kl_virtual_keyboard_secure_input="on" -->
+												<!-- 													id="empId" name="empId" -->
+												<!-- 													class="form-control fixed_size_inputs input-sm" -->
+												<!-- 													maxlength="250" required="required" type="text"> -->
 											</div>
 										</div>
 									</div>
@@ -63,12 +76,19 @@
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Department ID</label>
+												<label class="control-label" for="inputUserType1">Department
+													ID</label>
 											</div>
 											<div class="col-sm-10  pull-left">
-												<input kl_virtual_keyboard_secure_input="on" name="deptId"
-													id="deptId" class="form-control fixed_size_inputs input-sm"
-													maxlength="20" required="required" type="text">
+												<select name="deptId" id="deptId"
+													class="form-control pull-left input-sm">
+													<!--  the c forEach tag is accepting the list object through items attribute
+						it is iterating the data over the list and then storing each object in the department variable  -->
+													<c:forEach items="${deptList}" var="dept">
+														<option value="<c:out value ="${dept.deptId}"/>"><c:out
+																value="${dept.deptName}" /></option>
+													</c:forEach>
+												</select>
 
 											</div>
 										</div>
@@ -80,12 +100,19 @@
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Project ID</label>
+												<label class="control-label" for="inputUserType1">Project
+													ID</label>
 											</div>
 											<div class="col-sm-10  pull-left">
-												<input kl_virtual_keyboard_secure_input="on" name="prjId"
-													id="prjId" class="form-control fixed_size_inputs input-sm"
-													maxlength="20" required="required" type="text">
+												<select name="prjId" id="prjId"
+													class="form-control pull-left input-sm">
+													<!--  the c forEach tag is accepting the list object through items attribute
+						it is iterating the data over the list and then storing each object in the department variable  -->
+													<c:forEach items="${prjList}" var="prj">
+														<option value="<c:out value ="${prj.projectId}"/>"><c:out
+																value="${prj.projectName}" /></option>
+													</c:forEach>
+												</select>
 
 											</div>
 										</div>

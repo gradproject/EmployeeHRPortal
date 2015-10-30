@@ -17,7 +17,11 @@ if(successMessage == null){
 <title>Employee List</title>
 </head>
 <body>
-<div id="messageDiv" ><%=successMessage%>
+<div id="messageDiv" >
+<div class="alert alert-success alert-dismissible" id="last_login-" role="alert" style="text-align: center;">
+	  <button class="close" type="button" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+	  <strong><%=successMessage%>.</strong>
+	</div>
 </div>
 	<table cellspacing="0" cellpadding="0" border="1">
 	

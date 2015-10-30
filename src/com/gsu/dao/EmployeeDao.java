@@ -302,7 +302,7 @@ public class EmployeeDao {
 		int rowsUpdated = 0;
 		Connection connection = getConnection();
 		Statement statement = null;
-		String insertQuery = "insert into employee_jobs_portal.dbo.employee (emp_id,emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience) values ('"
+		String insertQuery = "insert into employee_jobs_portal.dbo.employee (emp_id,emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience, password) values ('"
 				+ empId
 				+ "','"
 				+ empFirstName

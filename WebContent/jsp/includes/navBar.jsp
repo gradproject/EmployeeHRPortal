@@ -18,6 +18,9 @@
 
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
+				
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="/EmployeeHRPortal/jsp/adminLogin.jsp">Admin</a></li>
 
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -29,7 +32,7 @@
 						<li><a href="/EmployeeHRPortal/EmployeeListServlet">List
 								Employees</a></li>
 						
-						<li><a href="/EmployeeHRPortal/jsp/enterTimeSheet.jsp">Enter
+						<li><a href="/EmployeeHRPortal/InitalizeTimeSheet">Enter
 								Time Sheet</a></li>
 					</ul></li>
 

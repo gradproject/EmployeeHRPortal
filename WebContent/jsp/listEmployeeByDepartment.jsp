@@ -39,34 +39,38 @@
 
 						</div>
 						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-stripped">
+									<thead>
+										<tr>
+											<th>Employee Id</th>
+											<th>Employee First Name</th>
+											<th>Employee Middle Name</th>
+											<th>Employee Last Name</th>
+											<th>Email Id</th>
+											<th>Phone Number</th>
+											<th>Designation</th>
+											<th>Experience</th>
 
-							<table cellspacing="0" cellpadding="0" border="1">
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${employeeList}" var="emp">
+											<tr>
 
-								<tr>
-									<th>Employee Id</th>
-									<th>Employee First Name</th>
-									<th>Employee Middle Name</th>
-									<th>Employee Last Name</th>
-									<th>Email Id</th>
-									<th>Phone Number</th>
-									<th>Designation</th>
-									<th>Experience</th>
-
-								</tr>
-								<c:forEach items="${employeeList}" var="emp">
-									<tr>
-
-										<td><c:out value="${emp.empId}" /></td>
-										<td><c:out value="${emp.empFirstName}" /></td>
-										<td><c:out value="${emp.empMiddleName}" /></td>
-										<td><c:out value="${emp.empLastName}" /></td>
-										<td><c:out value="${emp.empEmailId}" /></td>
-										<td><c:out value="${emp.phoneNumber}" /></td>
-										<td><c:out value="${emp.empDesg}" /></td>
-										<td><c:out value="${emp.empExp}" /></td>
-									</tr>
-								</c:forEach>
-							</table>
+												<td><c:out value="${emp.empId}" /></td>
+												<td><c:out value="${emp.empFirstName}" /></td>
+												<td><c:out value="${emp.empMiddleName}" /></td>
+												<td><c:out value="${emp.empLastName}" /></td>
+												<td><c:out value="${emp.empEmailId}" /></td>
+												<td><c:out value="${emp.phoneNumber}" /></td>
+												<td><c:out value="${emp.empDesg}" /></td>
+												<td><c:out value="${emp.empExp}" /></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
 						</div>
 						<!-- /col -->
 

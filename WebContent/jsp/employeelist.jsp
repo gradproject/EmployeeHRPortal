@@ -36,36 +36,40 @@
 
 						</div>
 						<div class="panel-body">
-
-							<table cellspacing="0" cellpadding="0" border="1">
-
-								<tr>
-									<th>Employee Id</th>
-									<th>Employee First Name</th>
-									<th>Employee Middle Name</th>
-									<th>Employee Last Name</th>
-									<th>Email Id</th>
-									<th>Phone Number</th>
-									<th>Deptartment Id</th>
-									<th>Employee Desgination</th>
-									<th>Employee Experience</th>
-								</tr>
-								<c:forEach items="${empList}" var="emp">
-									<tr>
-										<td><a
-											href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
-													value="${emp.empId}" /></a></td>
-										<td><c:out value="${emp.empFirstName}" /></td>
-										<td><c:out value="${emp.empMiddleName}" /></td>
-										<td><c:out value="${emp.empLastName}" /></td>
-										<td><c:out value="${emp.empEmailId}" /></td>
-										<td><c:out value="${emp.phoneNumber}" /></td>
-										<td><c:out value="${emp.deptId}" /></td>
-										<td><c:out value="${emp.empDesg}" /></td>
-										<td><c:out value="${emp.empExp}" /></td>
-									</tr>
-								</c:forEach>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-stripped">
+									<thead>
+										<tr>
+											<th>Employee Id</th>
+											<th>Employee First Name</th>
+											<th>Employee Middle Name</th>
+											<th>Employee Last Name</th>
+											<th>Email Id</th>
+											<th>Phone Number</th>
+											<th>Deptartment Id</th>
+											<th>Employee Desgination</th>
+											<th>Employee Experience</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${empList}" var="emp">
+											<tr>
+												<td><a
+													href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
+															value="${emp.empId}" /></a></td>
+												<td><c:out value="${emp.empFirstName}" /></td>
+												<td><c:out value="${emp.empMiddleName}" /></td>
+												<td><c:out value="${emp.empLastName}" /></td>
+												<td><c:out value="${emp.empEmailId}" /></td>
+												<td><c:out value="${emp.phoneNumber}" /></td>
+												<td><c:out value="${emp.deptId}" /></td>
+												<td><c:out value="${emp.empDesg}" /></td>
+												<td><c:out value="${emp.empExp}" /></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
 						</div>
 						<!-- /col -->
 

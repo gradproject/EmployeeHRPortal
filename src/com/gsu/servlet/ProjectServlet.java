@@ -3,6 +3,7 @@ package com.gsu.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
@@ -45,14 +46,23 @@ public class ProjectServlet extends HttpServlet {
 		
 		//to print the data i need to call getWriter() method of HttpServletResponse class with response obj.
 		// --> it returns a Printwriter class referenece so I am storing it in PrintWriter class obj(writer).
-		PrintWriter writer = response.getWriter();
-			if(rowsUpdated > 0){
-				writer.println(rowsUpdated +" rows updated successfully into Project Table."+"<br>");
-			}
-		writer.println("Project Name == "+projectName+"<br>");
-		writer.println("Project ID == "+projectId);
+//		PrintWriter writer = response.getWriter();
+//			if(rowsUpdated > 0){
+//				writer.println(rowsUpdated +" rows updated successfully into Project Table."+"<br>");
+//			}
+//		writer.println("Project Name == "+projectName+"<br>");
+//		writer.println("Project ID == "+projectId);
 		
+		String successMessage = "rows updated successfully into Project Table."+"\n"+"Project Name = "+projectName+" \n "+"Project ID = "+projectId;
 		
+		String failureMessage = "Dulpicate Value. Please enter the values again!!";
+		if(rowsUpdated > 0){
+			 request.setAttribute("successMessage",successMessage);
+		} else {
+		request.setAttribute("failureMessage",failureMessage);
+		}
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/project.jsp");
+		requestDispatcher.forward(request, response);
 		
 	}
 
