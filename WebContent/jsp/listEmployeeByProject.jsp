@@ -38,25 +38,29 @@
 
 						</div>
 						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-stripped">
+									<thead>
+										<tr>
+											<th>Employee Id</th>
+											<th>Employee First Name</th>
+											<th>Employee Middle Name</th>
+											<th>Employee Last Name</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${employeeList}" var="emp">
+											<tr>
 
-							<table cellspacing="0" cellpadding="0" border="1">
-
-								<tr>
-									<th>Employee Id</th>
-									<th>Employee First Name</th>
-									<th>Employee Middle Name</th>
-									<th>Employee Last Name</th>
-								</tr>
-								<c:forEach items="${employeeList}" var="emp">
-									<tr>
-
-										<td><c:out value="${emp.empId}" /></td>
-										<td><c:out value="${emp.empFirstName}" /></td>
-										<td><c:out value="${emp.empMiddleName}" /></td>
-										<td><c:out value="${emp.empLastName}" /></td>
-									</tr>
-								</c:forEach>
-							</table>
+												<td><c:out value="${emp.empId}" /></td>
+												<td><c:out value="${emp.empFirstName}" /></td>
+												<td><c:out value="${emp.empMiddleName}" /></td>
+												<td><c:out value="${emp.empLastName}" /></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
 						</div>
 						<!-- /col -->
 

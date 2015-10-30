@@ -12,6 +12,9 @@
 
 <!-- Bootstrap core CSS -->
 <link href="/EmployeeHRPortal/css/bootstrap.min.css" rel="stylesheet">
+<link href="/EmployeeHRPortal/css/bootstrap-theme.min.css" rel="stylesheet">
+
+
 
 <!-- Custom styles for this template -->
 <link href="/EmployeeHRPortal/css/dashboard.css" rel="stylesheet">
