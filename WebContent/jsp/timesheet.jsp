@@ -161,7 +161,9 @@
 	<%@ include file="includes/navBar.jsp"%>
 
 	<div class="container-fluid">
+
 		<div class="row">
+
 			<div class="col-sm-3 col-md-2 sidebar">
 				<br>
 				<h4 class="sub-header">Assigned Projects</h4>
@@ -175,7 +177,7 @@
 			</div>
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+				<%@ include file="includes/messagePopup.jsp"%>
 				<h2 class="sub-header">Time Sheet</h2>
 				<div class="row">
 					<div class="col-xs-6 col-md-4">

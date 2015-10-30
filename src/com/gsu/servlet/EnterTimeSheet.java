@@ -7,6 +7,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -90,6 +91,19 @@ public class EnterTimeSheet extends HttpServlet {
 		System.out
 				.println(totalRowsUpdated
 						+ " :: rows have been successfully inserted itno time sheet table!!");
+
+		String successMessage = totalRowsUpdated
+				+ " :: rows have been successfully inserted itno time sheet table!!";
+
+		String failureMessage = "Could not insert time sheet data into database!!";
+		if (totalRowsUpdated > 0) {
+			request.setAttribute("successMessage", successMessage);
+		} else {
+			request.setAttribute("failureMessage", failureMessage);
+		}
+		RequestDispatcher requestDispatcher = request
+				.getRequestDispatcher("/jsp/timesheet.jsp");
+		requestDispatcher.forward(request, response);
 
 	}
 

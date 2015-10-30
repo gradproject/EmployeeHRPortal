@@ -2,7 +2,6 @@ package com.gsu.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,13 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gsu.bean.Department;
-import com.gsu.bean.Employee;
-import com.gsu.bean.Project;
-import com.gsu.dao.DepartmentDao;
-import com.gsu.dao.EmployeeDao;
 import com.gsu.dao.EmployeeProjectMapDao;
-import com.gsu.dao.ProjectDao;
 
 public class AssignEmployeeProject extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,9 +35,19 @@ public class AssignEmployeeProject extends HttpServlet {
 	writer.println(rowsUpdated+" : row has been inserted in the projectDeptMap table. "+"<br>");
 	writer.println("project id = "+projectId +", department id = "+deptId+", emp id = "+empId);
 		
+		String successMessage = rowsUpdated+" : row has been inserted in the projectDeptMap table. ";
+		
+		String failureMessage = "Could not insert data into database. Please enter data agian!!";
 		
 		
-
+		if(rowsUpdated > 0){
+		request.setAttribute("successMessage", successMessage);	
+		}else {
+			request.setAttribute("failureMessage", failureMessage);
+		}
+		
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("IntialiseEmpProjectData");
+		requestDispatcher.forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request,
