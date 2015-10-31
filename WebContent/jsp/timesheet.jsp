@@ -235,6 +235,19 @@
 									<td></td>
 									<td></td>
 								</tr>
+								<c:forEach items="${projectTimeEntryList}" var="projectTimeEntry">
+									<tr>
+										<td><c:out value="${projectTimeEntry.projectName}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.sunday}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.monday}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.tuesday}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.wednesday}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.thursday}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.friday}"></c:out></td>
+										<td><c:out value="${projectTimeEntry.saturday}"></c:out></td>
+										<td></td>
+								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<table class="timesheetfooter timesheettable table table-bordered">

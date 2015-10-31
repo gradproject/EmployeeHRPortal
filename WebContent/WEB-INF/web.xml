@@ -174,4 +174,14 @@
     <servlet-name>InitalizeTimeSheet</servlet-name>
     <url-pattern>/InitalizeTimeSheet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisplayTimeSheet</display-name>
+    <servlet-name>DisplayTimeSheet</servlet-name>
+    <servlet-class>com.gsu.servlet.DisplayTimeSheet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayTimeSheet</servlet-name>
+    <url-pattern>/DisplayTimeSheet</url-pattern>
+  </servlet-mapping>
 </web-app>

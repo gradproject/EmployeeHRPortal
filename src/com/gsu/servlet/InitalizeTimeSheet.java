@@ -2,7 +2,11 @@ package com.gsu.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,9 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.gsu.bean.Project;
+import com.gsu.bean.ProjectTimeEntry;
 import com.gsu.bean.TimeSheet;
 import com.gsu.bean.WeekDays;
 import com.gsu.dao.EmployeeProjectMapDao;
+import com.gsu.dao.TimeSheetDao;
 
 /**
  * Servlet implementation class InitalizeTimeSheet
@@ -33,11 +39,7 @@ public class InitalizeTimeSheet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
-		
 
-		
-		
 		String empId = request.getParameter("empId");
 
 		String weekIncrement = request.getParameter("weekIncrement");
@@ -91,10 +93,104 @@ public class InitalizeTimeSheet extends HttpServlet {
 		request.setAttribute("projectList", projectList);
 		request.setAttribute("empId", empId);
 
+		List<ProjectTimeEntry> projectTimeEntryList = listProjectEntries(
+				curWeek, empId);
+
+		request.setAttribute("projectTimeEntryList", projectTimeEntryList);
+
 		RequestDispatcher rd = request
 				.getRequestDispatcher("jsp/timesheet.jsp");
 		rd.forward(request, response);
 
+	}
+
+	public List<ProjectTimeEntry> listProjectEntries(int curWeek, String empId) {
+
+		List<ProjectTimeEntry> projectTimeEntryList = new ArrayList<ProjectTimeEntry>();
+
+		Map<String, ProjectTimeEntry> mapObj = new HashMap<String, ProjectTimeEntry>();
+
+		WeekDays weekDays = new WeekDays(curWeek);
+
+		String startDate = weekDays.getSunday();
+		String endDate = weekDays.getSaturday();
+
+		TimeSheetDao timeSheetDaoObj = new TimeSheetDao();
+		List<TimeSheet> timeSheetList = timeSheetDaoObj.selectTimeSheet(empId,
+				startDate, endDate);
+
+		for (TimeSheet timeSheetObj : timeSheetList) {
+			String projectName = timeSheetObj.getProjectName();
+
+			ProjectTimeEntry projectTimeEntryObj = mapObj.get(projectName);
+			if (projectTimeEntryObj != null) {
+				projectTimeEntryObj = setProjectTimeEntryValues(
+						projectTimeEntryObj, timeSheetObj, weekDays);
+
+				mapObj.put(projectName, projectTimeEntryObj);
+
+			} else {
+				ProjectTimeEntry projectTimeEntry = new ProjectTimeEntry();
+				projectTimeEntry.setProjectName(projectName);
+				projectTimeEntry = setProjectTimeEntryValues(projectTimeEntry,
+						timeSheetObj, weekDays);
+
+				mapObj.put(projectName, projectTimeEntry);
+			}
+
+		}
+
+		Set keys = mapObj.keySet();
+		Iterator iterator = keys.iterator();
+		while (iterator.hasNext()) {
+			String projectName = (String) iterator.next();
+			ProjectTimeEntry projectTimeEntry = mapObj.get(projectName);
+			projectTimeEntryList.add(projectTimeEntry);
+		}
+
+		return projectTimeEntryList;
+	}
+
+	public ProjectTimeEntry setProjectTimeEntryValues(
+			ProjectTimeEntry prjTimeEntry, TimeSheet timeSheet,
+			WeekDays weekDays) {
+
+		String projectName = prjTimeEntry.getProjectName();
+		String tsProjectName = timeSheet.getProjectName();
+
+		String sunday = weekDays.getSunday();
+		String monday = weekDays.getMonday();
+		String tuesday = weekDays.getTuesday();
+		String wednesday = weekDays.getWednesday();
+		String thursday = weekDays.getThursday();
+		String friday = weekDays.getFriday();
+		String saturday = weekDays.getSaturday();
+
+		if (projectName.equalsIgnoreCase(tsProjectName)) {
+			String date = timeSheet.getDate();
+			String workHours = timeSheet.getWorkHours();
+
+			System.out.println("Date in set Project Time Entry "+date);
+			
+			if (sunday.equals(date)) {
+				prjTimeEntry.setSunday(workHours);
+			} else if (monday.equals(date)) {
+				prjTimeEntry.setMonday(workHours);
+			} else if (tuesday.equals(date)) {
+				prjTimeEntry.setTuesday(workHours);
+			} else if (wednesday.equals(date)) {
+				prjTimeEntry.setWednesday(workHours);
+			} else if (thursday.equals(date)) {
+				prjTimeEntry.setThursday(workHours);
+			} else if (friday.equals(date)) {
+				prjTimeEntry.setFriday(workHours);
+			} else if (saturday.equals(date)) {
+				prjTimeEntry.setSaturday(workHours);
+			}
+
+		}
+
+		return prjTimeEntry;
 	}
 
 }
