@@ -102,7 +102,7 @@ public class EnterTimeSheet extends HttpServlet {
 			request.setAttribute("failureMessage", failureMessage);
 		}
 		RequestDispatcher requestDispatcher = request
-				.getRequestDispatcher("/jsp/timesheet.jsp");
+				.getRequestDispatcher("InitalizeTimeSheet");
 		requestDispatcher.forward(request, response);
 
 	}

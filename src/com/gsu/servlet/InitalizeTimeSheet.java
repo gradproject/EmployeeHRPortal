@@ -40,14 +40,16 @@ public class InitalizeTimeSheet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String empId = request.getParameter("empId");
+		
+		HttpSession session = request.getSession();
+		
+		String empId = (String) session.getAttribute("empId");
 
 		String weekIncrement = request.getParameter("weekIncrement");
 
 		if (weekIncrement == null)
 			weekIncrement = "0";
 
-		HttpSession session = request.getSession();
 
 		String currentWeek = (String) session.getAttribute("currentWeek");
 
@@ -92,11 +94,24 @@ public class InitalizeTimeSheet extends HttpServlet {
 
 		request.setAttribute("projectList", projectList);
 		request.setAttribute("empId", empId);
+		
+		int currentLineNumber = 0;
 
 		List<ProjectTimeEntry> projectTimeEntryList = listProjectEntries(
-				curWeek, empId);
+				curWeek, empId, "0", currentLineNumber);
 
 		request.setAttribute("projectTimeEntryList", projectTimeEntryList);
+		
+		currentLineNumber = currentLineNumber + projectTimeEntryList.size();
+		
+		List<ProjectTimeEntry> approvedProjectTimeEntryList = listProjectEntries(
+				curWeek, empId, "1", currentLineNumber);
+
+		request.setAttribute("approvedProjectTimeEntryList", approvedProjectTimeEntryList);
+		
+		 currentLineNumber = currentLineNumber + approvedProjectTimeEntryList.size();
+		
+		request.setAttribute("currentLineNumber", currentLineNumber);
 
 		RequestDispatcher rd = request
 				.getRequestDispatcher("jsp/timesheet.jsp");
@@ -104,7 +119,7 @@ public class InitalizeTimeSheet extends HttpServlet {
 
 	}
 
-	public List<ProjectTimeEntry> listProjectEntries(int curWeek, String empId) {
+	public List<ProjectTimeEntry> listProjectEntries(int curWeek, String empId, String approvedStatus, int lineNumber) {
 
 		List<ProjectTimeEntry> projectTimeEntryList = new ArrayList<ProjectTimeEntry>();
 
@@ -117,7 +132,7 @@ public class InitalizeTimeSheet extends HttpServlet {
 
 		TimeSheetDao timeSheetDaoObj = new TimeSheetDao();
 		List<TimeSheet> timeSheetList = timeSheetDaoObj.selectTimeSheet(empId,
-				startDate, endDate);
+				startDate, endDate, approvedStatus);
 
 		for (TimeSheet timeSheetObj : timeSheetList) {
 			String projectName = timeSheetObj.getProjectName();
@@ -140,12 +155,15 @@ public class InitalizeTimeSheet extends HttpServlet {
 
 		}
 
+		
 		Set keys = mapObj.keySet();
 		Iterator iterator = keys.iterator();
 		while (iterator.hasNext()) {
 			String projectName = (String) iterator.next();
 			ProjectTimeEntry projectTimeEntry = mapObj.get(projectName);
+			projectTimeEntry.setLineNumber(lineNumber);
 			projectTimeEntryList.add(projectTimeEntry);
+			lineNumber++;
 		}
 
 		return projectTimeEntryList;

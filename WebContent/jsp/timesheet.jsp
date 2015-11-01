@@ -61,7 +61,7 @@
 </style>
 
 <script type="text/javascript">
-	var lineNumber = 0;
+	var lineNumber = <c:out value="${currentLineNumber}"/>;
 
 	function addProject(projectName, projectId) {
 
@@ -152,6 +152,8 @@
 		}
 		return total;
 	}
+	
+	
 </script>
 
 </head>
@@ -238,14 +240,27 @@
 								<c:forEach items="${projectTimeEntryList}" var="projectTimeEntry">
 									<tr>
 										<td><c:out value="${projectTimeEntry.projectName}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.sunday}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.monday}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.tuesday}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.wednesday}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.thursday}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.friday}"></c:out></td>
-										<td><c:out value="${projectTimeEntry.saturday}"></c:out></td>
-										<td></td>
+										<td><input readonly style="color:#A8A8A8;" name="sun_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="sun_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.sunday}"></c:out>"/></td>
+										<td><input readonly style="color:#A8A8A8;" name="mon_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="mon_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.monday}"></c:out>"/></td>
+										<td><input readonly style="color:#A8A8A8;" name="tue_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="tue_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.tuesday}"></c:out>"/></td>
+										<td><input readonly style="color:#A8A8A8;" name="wed_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="wed_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.wednesday}"></c:out>"/></td>
+										<td><input readonly style="color:#A8A8A8;" name="thu_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="thu_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.thursday}"></c:out>"/></td>
+										<td><input readonly style="color:#A8A8A8;" name="fri_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="fri_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.friday}"></c:out>"/></td>
+										<td><input readonly style="color:#A8A8A8;" name="sat_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" id="sat_line<c:out value="${projectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${projectTimeEntry.saturday}"></c:out>"/></td>
+										<td name="line<c:out value="${projectTimeEntry.lineNumber}"></c:out>_total" id="line<c:out value="${projectTimeEntry.lineNumber}"></c:out>_total"></td>
+								</tr>
+								</c:forEach>
+								<c:forEach items="${approvedProjectTimeEntryList}" var="approvedProjectTimeEntry">
+									<tr>
+										<td><c:out value="${approvedProjectTimeEntry.projectName}"></c:out></td>
+										<td><input readonly style="color:#6CC838;" name="sun_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="sun_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.sunday}"></c:out>"/></td>
+										<td><input readonly style="color:#6CC838;" name="mon_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="mon_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.monday}"></c:out>"/></td>
+										<td><input readonly style="color:#6CC838;" name="tue_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="tue_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.tuesday}"></c:out>"/></td>
+										<td><input readonly style="color:#6CC838;" name="wed_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="wed_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.wednesday}"></c:out>"/></td>
+										<td><input readonly style="color:#6CC838;" name="thu_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="thu_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.thursday}"></c:out>"/></td>
+										<td><input readonly style="color:#6CC838;" name="fri_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="fri_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.friday}"></c:out>"/></td>
+										<td><input readonly style="color:#6CC838;" name="sat_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" id="sat_line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>" value="<c:out value="${approvedProjectTimeEntry.saturday}"></c:out>"/></td>
+										<td name="line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>_total" id="line<c:out value="${approvedProjectTimeEntry.lineNumber}"></c:out>_total"></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -295,5 +310,6 @@
 		<!-- /container -->
 
 		<%@ include file="includes/footerIncludes.jsp"%>
+		<script type="text/javascript">updateTotals();</script>
 </body>
 </html>

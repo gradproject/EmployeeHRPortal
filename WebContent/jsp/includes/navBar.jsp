@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -15,76 +17,82 @@
 			<a class="navbar-brand" href="#">Employee Connect</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
-
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				
+			<c:if test="${fn:contains(sessionScope.userLoggedIn, 'true')}">
 				<ul class="nav navbar-nav">
-				<li class="active"><a href="/EmployeeHRPortal/jsp/adminLogin.jsp">Admin</a></li>
+
+					<li class="active"><a href="#">Home</a></li>
 
 
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Employees <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="/EmployeeHRPortal/AssignEmployeeDeptData">Create
-								New Employee</a></li>
-						<li class="divider"></li>
-						<li><a href="/EmployeeHRPortal/EmployeeListServlet">List
-								Employees</a></li>
-						
-						<li><a href="/EmployeeHRPortal/InitalizeTimeSheet">Enter
-								Time Sheet</a></li>
-					</ul></li>
+					<ul class="nav navbar-nav">
+						<li class="active"><a
+							href="/EmployeeHRPortal/jsp/adminLogin.jsp">Admin</a></li>
 
 
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Projects <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						<!-- <li><a href="/OnCampusJobsPortal/jsp/profileInformation.jsp">Update
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Employees <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/EmployeeHRPortal/AssignEmployeeDeptData">Create
+										New Employee</a></li>
+								<li class="divider"></li>
+								<li><a href="/EmployeeHRPortal/EmployeeListServlet">List
+										Employees</a></li>
+
+								<li><a href="/EmployeeHRPortal/InitalizeTimeSheet">Enter
+										Time Sheet</a></li>
+							</ul></li>
+
+
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Projects <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<!-- <li><a href="/OnCampusJobsPortal/jsp/profileInformation.jsp">Update
 									Profile Information</a></li>
 							<li class="divider"></li>-->
-						<li><a href="/EmployeeHRPortal/jsp/project.jsp">Create
-								New Project</a></li>
-						<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData">Assign Project to
-								Department</a></li>
-						<li><a href="/EmployeeHRPortal/IntialiseEmpProjectData">Assign
-								Employee to Project</a></li>
-								<li><a href="/EmployeeHRPortal/ListEmployeeByProject?projectId=1235">List
-								Employee By Project</a></li>
+								<li><a href="/EmployeeHRPortal/jsp/project.jsp">Create
+										New Project</a></li>
+								<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData">Assign
+										Project to Department</a></li>
+								<li><a href="/EmployeeHRPortal/IntialiseEmpProjectData">Assign
+										Employee to Project</a></li>
+								<li><a
+									href="/EmployeeHRPortal/ListEmployeeByProject?projectId=1235">List
+										Employee By Project</a></li>
 
-					</ul></li>
+							</ul></li>
 
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Departments <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						<!-- <li><a href="/OnCampusJobsPortal/jsp/profileInformation.jsp">Update
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Departments <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<!-- <li><a href="/OnCampusJobsPortal/jsp/profileInformation.jsp">Update
 									Profile Information</a></li>
 							<li class="divider"></li>-->
-						<li><a href="/EmployeeHRPortal/jsp/department.jsp">Create
-								New Department</a></li>
-						<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData"> Assign Project to
-								Department</a></li>
-						<li><a
-							href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=10">List
-								Employee By Department</a></li>
-						<li>
-					</ul></li>
+								<li><a href="/EmployeeHRPortal/jsp/department.jsp">Create
+										New Department</a></li>
+								<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData">
+										Assign Project to Department</a></li>
+								<li><a
+									href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=10">List
+										Employee By Department</a></li>
+								<li>
+							</ul></li>
 
 
-				<!-- <li><a href="#about">About</a></li>
+						<!-- <li><a href="#about">About</a></li>
 				<li><a href="#contact">Contact</a></li> -->
-			</ul>
 
-			<ul class="nav navbar-nav navbar-right">
-				<!--  	<li><a href="#">Dashboard</a></li> -->
-				<li><a href="#">Settings</a></li>
-				<!--  <li><a href="#">Profile</a></li> -->
-				<li><a href="#">Help</a></li>
-			</ul>
-			<form class="navbar-form navbar-right">
-				<input kl_virtual_keyboard_secure_input="on" class="form-control"
-					placeholder="Search..." type="text">
-			</form>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<!--  	<li><a href="#">Dashboard</a></li> -->
+						<li><a href="#">Settings</a></li>
+						<!--  <li><a href="#">Profile</a></li> -->
+						<li><a href="#">Help</a></li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<input kl_virtual_keyboard_secure_input="on" class="form-control"
+							placeholder="Search..." type="text">
+					</form>
+			</c:if>
 		</div>
 	</div>
 </nav>

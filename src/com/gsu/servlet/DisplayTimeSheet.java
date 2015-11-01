@@ -31,7 +31,7 @@ public class DisplayTimeSheet extends HttpServlet {
 		
 		
 		TimeSheetDao timeSheetDaoObj = new TimeSheetDao();
-			List<TimeSheet> timeSheetList = timeSheetDaoObj.selectTimeSheet(empId,startDate,endDate);
+			List<TimeSheet> timeSheetList = timeSheetDaoObj.selectTimeSheet(empId,startDate,endDate,"0");
 			
 			request.setAttribute("timeSheetList", timeSheetList);
 			
