@@ -6,10 +6,10 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - List Employees</title>
+<title>Employee HR Portal - List Projects By Manager</title>
 
 </head>
-
+<body>
 <body>
 
 	<%@ include file="includes/navBar.jsp"%>
@@ -22,17 +22,19 @@
 
 				<div class="page-header--">
 
-					<h3>List Employees</h3>
+					<h3>List Projects By Manager</h3>
 
 				</div>
+				<!-- /page-header-- -->
 
 				<div class="clearfix"></div>
+
 				<div class="panel-group" id="accordion">
 
 					<div class="panel panel-default ">
 
 						<div class="panel-heading ">
-							<h3 class="panel-title">Employees Information</h3>
+							<h3 class="panel-title">Projects  Information</h3>
 
 						</div>
 						<div class="panel-body">
@@ -40,31 +42,27 @@
 								<table class="table table-stripped">
 									<thead>
 										<tr>
-											<th>Employee Id</th>
-											<th>Employee First Name</th>
-											<th>Employee Middle Name</th>
-											<th>Employee Last Name</th>
-											<th>Email Id</th>
-											<th>Phone Number</th>
-											<th>Deptartment Id</th>
-											<th>Employee Desgination</th>
-											<th>Employee Experience</th>
+											<th>Project Id</th>
+											<th>Project Name</th>
+											<th>Project Status</th>
+											<th>Manager</th>
+											<th>Description</th>
+											<th>Total Cost</th>
+											<th>Approve TimeSheet</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${empList}" var="emp">
+										<c:forEach items="${projectList}" var="prj">
 											<tr>
-												<td><a
-													href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
-															value="${emp.empId}" /></a></td>
-												<td><c:out value="${emp.empFirstName}" /></td>
-												<td><c:out value="${emp.empMiddleName}" /></td>
-												<td><c:out value="${emp.empLastName}" /></td>
-												<td><c:out value="${emp.empEmailId}" /></td>
-												<td><c:out value="${emp.phoneNumber}" /></td>
-												<td><c:out value="${emp.deptId}" /></td>
-												<td><c:out value="${emp.empDesg}" /></td>
-												<td><c:out value="${emp.empExp}" /></td>
+
+												<td><c:out value="${prj.projectId}" /></td>
+												<td><c:out value="${prj.projectName}" /></td>
+												<td><c:out value="${prj.projectStatus}" /></td>
+												<td><c:out value="${prj.empId}" /></td>
+												<td><c:out value="${prj.description}" /></td>
+												<td><c:out value="${prj.totalCost}" /></td>
+												<td><a href="/EmployeeHRPortal/ListUnApprovedTimeSheets?projectId=<c:out value="${ prj.projectId}"/>">Approve Time Sheet</a></td>
+												
 											</tr>
 										</c:forEach>
 									</tbody>

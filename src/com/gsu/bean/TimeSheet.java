@@ -8,11 +8,13 @@ public class TimeSheet {
 	private String date;
 	private String workHours;
 	private String approved;
+	private String empFullName;
 
 	public TimeSheet() {
 
 	}
 
+	
 	public TimeSheet(String empId, String projectId, String date,
 			String workHours, String approved) {
 		this.empId = empId;
@@ -23,6 +25,30 @@ public class TimeSheet {
 	}
 
 	
+	
+	public TimeSheet(String empId, String projectId, String projectName,
+			String date, String workHours, String approved, String empFullName) {
+		super();
+		this.empId = empId;
+		this.projectId = projectId;
+		this.projectName = projectName;
+		this.date = date;
+		this.workHours = workHours;
+		this.approved = approved;
+		this.empFullName = empFullName;
+	}
+
+
+	public String getEmpFullName() {
+		return empFullName;
+	}
+
+
+	public void setEmpFullName(String empFullName) {
+		this.empFullName = empFullName;
+	}
+
+
 	public String getProjectName() {
 		return projectName;
 	}
@@ -70,12 +96,15 @@ public class TimeSheet {
 	public void setApproved(String approved) {
 		this.approved = approved;
 	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "TimeSheet [empId=" + empId + ", projectName=" + projectName
-				+ ", date=" + date + ", workHours=" + workHours + ", approved="
-				+ approved + "]";
+		return "\n"+"TimeSheet [empId=" + empId + ", projectId=" + projectId
+				+ ", projectName=" + projectName + ", date=" + date
+				+ ", workHours=" + workHours + ", approved=" + approved
+				+ ", empFullName=" + empFullName + "]";
 	}
 
 }

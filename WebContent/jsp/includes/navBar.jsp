@@ -14,7 +14,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Employee Connect</a>
+			<a class="navbar-brand" href="#">Employee HR Portal</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<c:if test="${fn:contains(sessionScope.userLoggedIn, 'true')}">
@@ -54,9 +54,16 @@
 										Project to Department</a></li>
 								<li><a href="/EmployeeHRPortal/IntialiseEmpProjectData">Assign
 										Employee to Project</a></li>
+<!-- 								<li><a -->
+<!-- 									href="/EmployeeHRPortal/ListEmployeeByProject?projectId=1235">List -->
+<!-- 										Employee By Project</a></li> -->
 								<li><a
-									href="/EmployeeHRPortal/ListEmployeeByProject?projectId=1235">List
-										Employee By Project</a></li>
+									href="/EmployeeHRPortal/ProjectListServlet">List
+										 Projects</a></li>
+										 <li><a
+									href="/EmployeeHRPortal/ListProjectByManager">List
+										 Projects By Manager</a></li>
+										 
 
 							</ul></li>
 
@@ -70,10 +77,13 @@
 										New Department</a></li>
 								<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData">
 										Assign Project to Department</a></li>
+<!-- 								<li><a -->
+<!-- 									href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=10">List -->
+<!-- 										Employee By Department</a></li> -->
+								
 								<li><a
-									href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=10">List
-										Employee By Department</a></li>
-								<li>
+									href="/EmployeeHRPortal/DepartmentListServlet">List
+										 Departments</a></li>
 							</ul></li>
 
 

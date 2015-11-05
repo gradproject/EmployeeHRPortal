@@ -9,34 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gsu.bean.Employee;
-import com.gsu.dao.EmployeeDao;
+import com.gsu.bean.Department;
+import com.gsu.dao.DepartmentDao;
 
 
-public class EmployeeListServlet extends HttpServlet {
+public class DepartmentListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public EmployeeListServlet() {
+    public DepartmentListServlet() {
         super();
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		EmployeeDao empDaoObj = new EmployeeDao();
-		List<Employee> empList = empDaoObj.selectAllEmployee();
-		
-		request.setAttribute("empList", empList);
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/employeelist.jsp");
-		requestDispatcher.forward(request, response);
+	doPost(request,response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	doGet(request,response);
-	
+
+		DepartmentDao deptDaoObj = new DepartmentDao();
+		List<Department> deptList = deptDaoObj.selectDepartment();
+		
+		request.setAttribute("deptList", deptList);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/departmentlist.jsp");
+		rd.forward(request,response);
+		
 	}
 
 }

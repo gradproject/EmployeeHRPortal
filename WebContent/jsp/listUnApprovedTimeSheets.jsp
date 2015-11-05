@@ -6,10 +6,10 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - List Employees</title>
+<title>Employee HR Portal - UnApproved TimeSheet List </title>
 
 </head>
-
+<body>
 <body>
 
 	<%@ include file="includes/navBar.jsp"%>
@@ -22,17 +22,19 @@
 
 				<div class="page-header--">
 
-					<h3>List Employees</h3>
+					<h3>UnApproved TimeSheet List</h3>
 
 				</div>
+				<!-- /page-header-- -->
 
 				<div class="clearfix"></div>
+
 				<div class="panel-group" id="accordion">
 
 					<div class="panel panel-default ">
 
 						<div class="panel-heading ">
-							<h3 class="panel-title">Employees Information</h3>
+							<h3 class="panel-title">UnApproved TimeSheet Information</h3>
 
 						</div>
 						<div class="panel-body">
@@ -40,31 +42,22 @@
 								<table class="table table-stripped">
 									<thead>
 										<tr>
+											<th>Project Id</th>
+											<th>Employee Full Name</th>
 											<th>Employee Id</th>
-											<th>Employee First Name</th>
-											<th>Employee Middle Name</th>
-											<th>Employee Last Name</th>
-											<th>Email Id</th>
-											<th>Phone Number</th>
-											<th>Deptartment Id</th>
-											<th>Employee Desgination</th>
-											<th>Employee Experience</th>
+											<th>Date</th>
+											<th>Total Work Hours</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${empList}" var="emp">
+										<c:forEach items="${timesheetList}" var="timesheet">
 											<tr>
-												<td><a
-													href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
-															value="${emp.empId}" /></a></td>
-												<td><c:out value="${emp.empFirstName}" /></td>
-												<td><c:out value="${emp.empMiddleName}" /></td>
-												<td><c:out value="${emp.empLastName}" /></td>
-												<td><c:out value="${emp.empEmailId}" /></td>
-												<td><c:out value="${emp.phoneNumber}" /></td>
-												<td><c:out value="${emp.deptId}" /></td>
-												<td><c:out value="${emp.empDesg}" /></td>
-												<td><c:out value="${emp.empExp}" /></td>
+
+												<td><c:out value="${timesheet.projectId}" /></td>
+												<td><c:out value="${timesheet.empFullName}" /></td>
+												<td><c:out value="${timesheet.empId}" /></td>
+												<td><c:out value="${timesheet.date}" /></td>
+												<td><c:out value="${timesheet.workHours}" /></td>
 											</tr>
 										</c:forEach>
 									</tbody>

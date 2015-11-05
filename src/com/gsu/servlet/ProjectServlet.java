@@ -36,9 +36,13 @@ public class ProjectServlet extends HttpServlet {
 		// project jsp I am getting project name and project id.
 		String projectName = request.getParameter("prjName");
 		String projectId = request.getParameter("prjId");
+		String projectStatus = request.getParameter("projStatus");
+		String totalCost = request.getParameter("totalCost");
+		String description = request.getParameter("description");
+		String empId = request.getParameter("empId");
 		
 		ProjectDao projectDaoObj = new ProjectDao();
-	int rowsUpdated =	projectDaoObj.insertProject(projectName, projectId);
+	int rowsUpdated =	projectDaoObj.insertProject(projectName, projectId, projectStatus, empId, description, totalCost);
 		
 		
 		//to know what type of data i am going to display in the web browser.

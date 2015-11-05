@@ -121,6 +121,55 @@ public class TimeSheetDao {
 		return timeSheetList;
 	}
 
+	
+	public List<TimeSheet> listunApprovedTimeSheet(String projectId){
+		Connection connection = getConnection();
+		Statement statement = null;
+		List<TimeSheet> timesheetList = new ArrayList<TimeSheet>();
+		
+		String empFullName = null;
+		String empId = null;
+		String prjId = null;
+		String date = null;
+		 String totalworkHours = null;
+		 String approved = null;
+		
+		try{
+		statement = connection.createStatement();
+		String selectQuery = "select  (e.emp_firstname + ' ' + e.emp_middlename + ' ' + e.emp_lastname) as emp_name, ts.emp_id, ts.project_id, ts.timesheet_date, sum(ts.work_hours) as total_work_hours, ts.approved  from employee_jobs_portal.dbo.timesheet as ts, employee_jobs_portal.dbo.employee as e where ts.emp_id = e.emp_id  and ts.project_id = '"+projectId+"' and ts.approved = 0   group by ts.emp_id,  ts.timesheet_date, ts.project_id, ts.approved, e.emp_firstname, e.emp_middlename, e.emp_lastname;";
+		
+		
+		
+		ResultSet rs = statement.executeQuery(selectQuery);
+		while(rs.next()){
+			
+			empFullName = rs.getString("emp_name");
+			empId = rs.getString("emp_id");
+			prjId = rs.getString("project_id"); 
+			date = rs.getString("timesheet_date");
+			totalworkHours = rs.getString("total_work_hours");
+			approved = rs.getString("approved");
+			
+			TimeSheet timesheetObj = new TimeSheet();
+			timesheetObj.setApproved(approved);
+			timesheetObj.setDate(date);
+			timesheetObj.setEmpFullName(empFullName);
+			timesheetObj.setEmpId(empId);
+			timesheetObj.setProjectId(prjId);
+			timesheetObj.setWorkHours(totalworkHours);
+			
+			timesheetList.add(timesheetObj);
+		}
+		
+		}catch(SQLException e){
+			System.out.println("SQLException while creating select query in listUnApprovedTimeSheet method of TimeSheetDao. "+e.getMessage());
+		}
+		
+		
+		return timesheetList;
+	}
+	
+	
 	public static void main(String[] args) {
 		TimeSheetDao timeSheetDaoObj = new TimeSheetDao();
 //		 int rowsUpdated = timeSheetDaoObj.insertTimeSheet("nrios", "3423",
@@ -129,5 +178,8 @@ public class TimeSheetDao {
 
 //		List<TimeSheet> list = timeSheetDaoObj.selectTimeSheet("njyothi","2015-10-25","2015-10-31","1");
 //		System.out.println(list.toString());
+		
+		List<TimeSheet> tsList = timeSheetDaoObj.listunApprovedTimeSheet("1235");
+		System.out.println(tsList.toString());
 	}
 }

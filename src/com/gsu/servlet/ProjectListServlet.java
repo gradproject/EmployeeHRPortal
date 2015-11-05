@@ -9,34 +9,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gsu.bean.Employee;
-import com.gsu.dao.EmployeeDao;
+import com.gsu.bean.Project;
+import com.gsu.dao.ProjectDao;
 
 
-public class EmployeeListServlet extends HttpServlet {
+public class ProjectListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public EmployeeListServlet() {
+    public ProjectListServlet() {
         super();
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		EmployeeDao empDaoObj = new EmployeeDao();
-		List<Employee> empList = empDaoObj.selectAllEmployee();
-		
-		request.setAttribute("empList", empList);
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/employeelist.jsp");
-		requestDispatcher.forward(request, response);
+		doPost(request,response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	doGet(request,response);
-	
+		
+		System.out.println("eneterd project list servlet");
+		ProjectDao projectDaoObj = new ProjectDao();
+		List<Project> projectList = projectDaoObj.selectProject();
+		System.out.println("called select project list method :: "+projectList.toString());
+		
+		request.setAttribute("prjList", projectList);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/projectlist.jsp");
+		rd.forward(request, response);
+		
 	}
 
 }

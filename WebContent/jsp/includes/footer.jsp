@@ -4,7 +4,7 @@
     
 <div class="footer">
   <div class="container">
-    <p class="text-muted" style="text-align: center;">Copyright © Employee Connect 2015</p>
+    <p class="text-muted" style="text-align: center;">Copyright © Employee HR Portal 2015</p>
   </div>
 </div>
 

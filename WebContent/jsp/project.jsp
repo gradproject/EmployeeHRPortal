@@ -84,6 +84,60 @@
 									</div>
 									<div class="col-md-4"></div>
 								</div>
+								<div class="col-md-4">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Project
+													Status</label>
+											</div>
+											<div class="col-sm-10  pull-left">
+												<input kl_virtual_keyboard_secure_input="on" name="prjStatus"
+													id="prjStatus" class="form-control fixed_size_inputs input-sm"
+													maxlength="50" required="required" type="text">
+
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Description</label>
+											</div>
+											<div class="col-sm-10  pull-left">
+												<input kl_virtual_keyboard_secure_input="on" name="description"
+													id="description" class="form-control fixed_size_inputs input-sm"
+													maxlength="250" required="required" type="text">
+
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Employee 
+													ID</label>
+											</div>
+											<div class="col-sm-10  pull-left">
+												<input kl_virtual_keyboard_secure_input="on" name="empId"
+													id="empId" class="form-control fixed_size_inputs input-sm"
+													maxlength="20" required="required" type="text">
+
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Total Cost</label>
+											</div>
+											<div class="col-sm-10  pull-left">
+												<input kl_virtual_keyboard_secure_input="on" name="totalCost"
+													id="totalCost" class="form-control fixed_size_inputs input-sm"
+													maxlength="20" required="required" type="text">
+
+											</div>
+										</div>
+									</div>
 								<div class="row">
 									<div class="col-md-4"></div>
 									<div class="col-md-8">

@@ -28,7 +28,7 @@
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong class="">Login</strong>
+						<strong class="">Employee Login</strong>
 
 					</div>
 					<div class="panel-body">
@@ -69,15 +69,15 @@
 							<div class="form-group last">
 								<div class="col-sm-offset-3 col-sm-9">
 									<button type="submit" class="btn btn-success btn-sm">Login</button>
-									<button type="reset" class="btn btn-default btn-sm">Reset</button>
+<!-- 									<button type="reset" class="btn btn-default btn-sm">Reset</button> -->
 								</div>
 							</div>
 						</form>
 					</div>
-					<div class="panel-footer">
-						Not Registered? <a href="/EmployeeHRPortal/jsp/employee.jsp"
-							class="">Register here</a>
-					</div>
+<!-- 					<div class="panel-footer"> -->
+<!-- 						Not Registered? <a href="/EmployeeHRPortal/jsp/employee.jsp" -->
+<!-- 							class="">Register here</a> -->
+<!-- 					</div> -->
 				</div>
 			</div>
 			<div class="col-md-3"></div>

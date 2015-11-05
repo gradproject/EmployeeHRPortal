@@ -6,7 +6,7 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - List Employees</title>
+<title>Employee HR Portal - List Departments</title>
 
 </head>
 
@@ -22,7 +22,7 @@
 
 				<div class="page-header--">
 
-					<h3>List Employees</h3>
+					<h3>List Departments</h3>
 
 				</div>
 
@@ -32,7 +32,7 @@
 					<div class="panel panel-default ">
 
 						<div class="panel-heading ">
-							<h3 class="panel-title">Employees Information</h3>
+							<h3 class="panel-title">Departments Information</h3>
 
 						</div>
 						<div class="panel-body">
@@ -40,31 +40,19 @@
 								<table class="table table-stripped">
 									<thead>
 										<tr>
-											<th>Employee Id</th>
-											<th>Employee First Name</th>
-											<th>Employee Middle Name</th>
-											<th>Employee Last Name</th>
-											<th>Email Id</th>
-											<th>Phone Number</th>
-											<th>Deptartment Id</th>
-											<th>Employee Desgination</th>
-											<th>Employee Experience</th>
+											<th>Department Id</th>
+											<th>Department Name</th>
+
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${empList}" var="emp">
+										<c:forEach items="${deptList}" var="dept">
 											<tr>
 												<td><a
-													href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
-															value="${emp.empId}" /></a></td>
-												<td><c:out value="${emp.empFirstName}" /></td>
-												<td><c:out value="${emp.empMiddleName}" /></td>
-												<td><c:out value="${emp.empLastName}" /></td>
-												<td><c:out value="${emp.empEmailId}" /></td>
-												<td><c:out value="${emp.phoneNumber}" /></td>
-												<td><c:out value="${emp.deptId}" /></td>
-												<td><c:out value="${emp.empDesg}" /></td>
-												<td><c:out value="${emp.empExp}" /></td>
+													href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=<c:out value ="${dept.deptId}"/>"><c:out
+															value="${dept.deptId}" /></a></td>
+												<td><c:out value="${dept.deptName}" /></td>
+
 											</tr>
 										</c:forEach>
 									</tbody>

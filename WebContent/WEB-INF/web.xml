@@ -184,4 +184,44 @@
     <servlet-name>DisplayTimeSheet</servlet-name>
     <url-pattern>/DisplayTimeSheet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProjectListServlet</display-name>
+    <servlet-name>ProjectListServlet</servlet-name>
+    <servlet-class>com.gsu.servlet.ProjectListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjectListServlet</servlet-name>
+    <url-pattern>/ProjectListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DepartmentListServlet</display-name>
+    <servlet-name>DepartmentListServlet</servlet-name>
+    <servlet-class>com.gsu.servlet.DepartmentListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DepartmentListServlet</servlet-name>
+    <url-pattern>/DepartmentListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListProjectByManager</display-name>
+    <servlet-name>ListProjectByManager</servlet-name>
+    <servlet-class>com.gsu.servlet.ListProjectByManager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListProjectByManager</servlet-name>
+    <url-pattern>/ListProjectByManager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListUnApprovedTimeSheets</display-name>
+    <servlet-name>ListUnApprovedTimeSheets</servlet-name>
+    <servlet-class>com.gsu.servlet.ListUnApprovedTimeSheets</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListUnApprovedTimeSheets</servlet-name>
+    <url-pattern>/ListUnApprovedTimeSheets</url-pattern>
+  </servlet-mapping>
 </web-app>
