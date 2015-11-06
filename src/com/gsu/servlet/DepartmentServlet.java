@@ -10,25 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.gsu.dao.DepartmentDao;
 
-/**
- * Servlet implementation class DepartmentServlet
- */
+
 public class DepartmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public DepartmentServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		
 		
@@ -53,16 +45,10 @@ public class DepartmentServlet extends HttpServlet {
 		writer.println("department Name == "+departmentName+"<br>");
 		writer.println("department Id == "+departmentId);
 		
-		
-		
-		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request,response);
 	}
 

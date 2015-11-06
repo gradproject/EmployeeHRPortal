@@ -195,7 +195,7 @@ public class TimeSheetDao {
 //		List<TimeSheet> tsList = timeSheetDaoObj.listunApprovedTimeSheet("1235");
 //		System.out.println(tsList.toString());
 		
-		int rowsUpdated = timeSheetDaoObj.approveTimeSheet("9990", "njyothi", "2015-10-11");
-		System.out.println("Approve time sheet = "+rowsUpdated);
+//		int rowsUpdated = timeSheetDaoObj.approveTimeSheet("9990", "njyothi", "2015-10-11");
+//		System.out.println("Approve time sheet = "+rowsUpdated);
 	}
 }

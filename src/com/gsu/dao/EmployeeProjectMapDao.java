@@ -189,8 +189,8 @@ public class EmployeeProjectMapDao {
 //		List<Employee> empList = obj.selectEmployeesByProject("1235");
 //		System.out.println(empList.toString());
 		
-		List<Project> prjList = obj.selectProjectsByEmployee("njyothi");
-		System.out.println(prjList.toString());
+//		List<Project> prjList = obj.selectProjectsByEmployee("njyothi");
+//		System.out.println(prjList.toString());
 		
 		
 	}

@@ -178,8 +178,8 @@ System.out.println("SQLException while creating statement in list project by man
 	}
 	public static void main(String[] args){
 		ProjectDao obj = new ProjectDao();
-	List<Project> prjList = obj.listProjectsByManager("rmudunuri");
-	System.out.println(prjList.toString());
+//	List<Project> prjList = obj.listProjectsByManager("rmudunuri");
+//	System.out.println(prjList.toString());
 			//obj.selectProject();
 		//int result = obj.insertProject("INDIA BAZAR","1236","done","rmudunuri","abcdefghijklmnopqrstuvwxyz","34313231");
 		//System.out.println(result);

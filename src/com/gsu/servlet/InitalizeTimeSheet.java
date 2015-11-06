@@ -22,9 +22,7 @@ import com.gsu.bean.WeekDays;
 import com.gsu.dao.EmployeeProjectMapDao;
 import com.gsu.dao.TimeSheetDao;
 
-/**
- * Servlet implementation class InitalizeTimeSheet
- */
+
 public class InitalizeTimeSheet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

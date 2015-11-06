@@ -73,8 +73,8 @@ public class ProjectDeptMapDao {
 	
 	public static void main(String[] args){
 		ProjectDeptMapDao obj = new ProjectDeptMapDao();
-		int count = obj.insertPrjDeptMap("1235", "10", "50");
-		System.out.println(count);
+//		int count = obj.insertPrjDeptMap("1235", "10", "50");
+//		System.out.println(count);
 		
 	}
 }
