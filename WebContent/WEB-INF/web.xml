@@ -224,4 +224,14 @@
     <servlet-name>ListUnApprovedTimeSheets</servlet-name>
     <url-pattern>/ListUnApprovedTimeSheets</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveTimeSheet</display-name>
+    <servlet-name>ApproveTimeSheet</servlet-name>
+    <servlet-class>com.gsu.servlet.ApproveTimeSheet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveTimeSheet</servlet-name>
+    <url-pattern>/ApproveTimeSheet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -169,7 +169,20 @@ public class TimeSheetDao {
 		return timesheetList;
 	}
 	
-	
+	public int approveTimeSheet(String projectId, String empId, String date){
+		Connection connection = getConnection();
+		Statement statement = null;
+		int rowsUpdated = 0;
+		try{
+		statement = connection.createStatement();
+		String updateQuery = "update employee_jobs_portal.dbo.timesheet set approved = 1 where project_id = '"+projectId+"' and emp_id = '"+empId+"' and timesheet_date = '"+date+"';";
+		rowsUpdated = statement.executeUpdate(updateQuery);
+		}catch(SQLException e){
+			System.out.println("SQLException while creating statement in approveTimeSheet method in timeSheetDao. "+e.getMessage());
+		}
+		
+		return rowsUpdated;
+	}
 	public static void main(String[] args) {
 		TimeSheetDao timeSheetDaoObj = new TimeSheetDao();
 //		 int rowsUpdated = timeSheetDaoObj.insertTimeSheet("nrios", "3423",
@@ -179,7 +192,10 @@ public class TimeSheetDao {
 //		List<TimeSheet> list = timeSheetDaoObj.selectTimeSheet("njyothi","2015-10-25","2015-10-31","1");
 //		System.out.println(list.toString());
 		
-		List<TimeSheet> tsList = timeSheetDaoObj.listunApprovedTimeSheet("1235");
-		System.out.println(tsList.toString());
+//		List<TimeSheet> tsList = timeSheetDaoObj.listunApprovedTimeSheet("1235");
+//		System.out.println(tsList.toString());
+		
+		int rowsUpdated = timeSheetDaoObj.approveTimeSheet("9990", "njyothi", "2015-10-11");
+		System.out.println("Approve time sheet = "+rowsUpdated);
 	}
 }

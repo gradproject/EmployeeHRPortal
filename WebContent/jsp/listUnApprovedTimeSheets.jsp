@@ -6,7 +6,7 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - UnApproved TimeSheet List </title>
+<title>Employee HR Portal - UnApproved TimeSheet List</title>
 
 </head>
 <body>
@@ -38,10 +38,16 @@
 
 						</div>
 						<div class="panel-body">
+						<form name="" action="/EmployeeHRPortal/ApproveTimeSheet" method="post">
 							<div class="table-responsive">
 								<table class="table table-stripped">
 									<thead>
 										<tr>
+											<%-- 											<c:if --%>
+											<%-- 												test="${fn:contains(sessionScope.userType, 'Employee')}"> --%>
+											<!-- 												<th>&nbsp;</th> -->
+											<%-- 											</c:if> --%>
+											<th></th>
 											<th>Project Id</th>
 											<th>Employee Full Name</th>
 											<th>Employee Id</th>
@@ -49,10 +55,17 @@
 											<th>Total Work Hours</th>
 										</tr>
 									</thead>
+
 									<tbody>
 										<c:forEach items="${timesheetList}" var="timesheet">
 											<tr>
-
+												<%-- <c:if --%>
+												<%-- test="${fn:contains(sessionScope.userType, 'Employee')}"> --%>
+												<td><input type="checkbox" id="approveTimeSheet"
+													name="approveTimeSheet"
+													value="<c:out value ="${timesheet.projectId}"/>_<c:out value="${timesheet.empId}"/>_<c:out value="${timesheet.date}"/>"
+													style="margin-right: 10px;" /></td>
+												<%-- </c:if> --%>
 												<td><c:out value="${timesheet.projectId}" /></td>
 												<td><c:out value="${timesheet.empFullName}" /></td>
 												<td><c:out value="${timesheet.empId}" /></td>
@@ -63,6 +76,10 @@
 									</tbody>
 								</table>
 							</div>
+							<div class="col-sm-12">
+									<button type="submit" class="btn btn-success btn-sm">Submit</button>
+								</div>
+						</form>
 						</div>
 						<!-- /col -->
 
