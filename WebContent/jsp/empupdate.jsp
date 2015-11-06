@@ -18,7 +18,7 @@ if(failureMessage == null){
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - Create New Employee</title>
+<title>Employee HR Portal - Update Employee</title>
 
 </head>
 
@@ -34,7 +34,7 @@ if(failureMessage == null){
 
 				<div class="page-header--">
 
-					<h3>Create New Employee</h3>
+					<h3>Update Employee</h3>
 
 				</div>
 				<!-- /page-header-- -->

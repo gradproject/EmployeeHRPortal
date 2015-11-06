@@ -14,7 +14,8 @@ if(failureMessage == null){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Create Employee Page</title>
 	 <script>
 		function validateEmplyeeForm(){
 			alert("function validateEmplyeeForm started :: ");

@@ -14,9 +14,7 @@ import com.gsu.bean.Employee;
 import com.gsu.dao.DepartmentDao;
 import com.gsu.dao.EmployeeDao;
 
-/**
- * Servlet implementation class AssignEmployeeDeptData
- */
+
 public class AssignEmployeeDeptData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
