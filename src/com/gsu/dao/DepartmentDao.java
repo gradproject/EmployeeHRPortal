@@ -10,29 +10,8 @@ import java.util.List;
 
 import com.gsu.bean.Department;
 
-public class DepartmentDao {
+public class DepartmentDao extends EmployeeConnectDao{
 	
-	
-	public  Connection getConnection(){
-		
-		String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-		//protocol:typeof server://hostname:portnumber;databasename.
-		Connection connection = null;
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("Class not found while loading driver class :: "+e.getMessage());
-		}
-		try {
-			connection = DriverManager.getConnection(connectionString,"sa","sqladmin");
-			//connectionString,username,password.
-		} catch (SQLException e) {
-			System.out.println("SQLException :: "+e.getMessage());
-		}
-		
-		return connection;
-	}
-
 	
 	public int insertDept(String deptName, String deptId){
 		
@@ -122,8 +101,8 @@ public class DepartmentDao {
 	public static void main(String[] args){
 		DepartmentDao obj = new DepartmentDao();
 		//int result = obj.insertDept("Biology", "8");
-		//String result = obj.selectDepartment();
-	//	System.out.println(result);
+		List<Department> deptList = obj.selectDepartment();
+		System.out.println(deptList.toString());
 		
 	}
 	

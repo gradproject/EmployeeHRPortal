@@ -11,29 +11,9 @@ import java.util.List;
 import com.gsu.bean.Employee;
 import com.gsu.bean.Project;
 
-public class EmployeeProjectMapDao {
+public class EmployeeProjectMapDao extends EmployeeConnectDao{
 
-	public Connection getConnection() {
-		Connection connection = null;
-		String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-		// protocol:typeof server://hostname:portnumber;databasename;
-
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("ClassNotFoundException :: " + e.getMessage());
-		}
-		try {
-			connection = DriverManager.getConnection(connectionString, "sa",
-					"sqladmin");
-			System.out.println("Connection has been successfully established ");
-		} catch (SQLException e) {
-			System.out.println("SQLException while connecting to database :: "
-					+ e.getMessage());
-		}
-
-		return connection;
-	}
+	
 
 	public int insertEmployeeProjectMap(String empId, String deptId,
 			String projectId) {
@@ -186,12 +166,14 @@ public class EmployeeProjectMapDao {
 
 	public static void main(String[] args) {
 		EmployeeProjectMapDao obj = new EmployeeProjectMapDao();
-//		List<Employee> empList = obj.selectEmployeesByProject("1235");
-//		System.out.println(empList.toString());
+		List<Employee> empList = obj.selectEmployeesByProject("1235");
+		System.out.println(empList.toString());
 		
 //		List<Project> prjList = obj.selectProjectsByEmployee("njyothi");
 //		System.out.println(prjList.toString());
-		
-		
+//		String str = obj.selectEmployeeProjectMap();
+//		System.out.println(str.toString());
+//		
+//		
 	}
 }

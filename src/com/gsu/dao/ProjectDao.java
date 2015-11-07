@@ -10,28 +10,7 @@ import java.util.List;
 
 import com.gsu.bean.Project;
 
-public class ProjectDao {
-	
-	public Connection getConnection(){
-		Connection connection = null;
-		
-		String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-		
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("Class not found exception while loading driver class :: "+e.getMessage());
-		}
-		
-		try {
-			connection = DriverManager.getConnection(connectionString,"sa","sqladmin");
-			System.out.println("Connection established successfully :: ");
-		} catch (SQLException e) {
-			System.out.println("SQLException while connecting to database :: "+e.getMessage());
-		}
-		
-		return connection;
-	}
+public class ProjectDao extends EmployeeConnectDao {
 	
 	
 	
@@ -183,7 +162,8 @@ System.out.println("SQLException while creating statement in list project by man
 			//obj.selectProject();
 		//int result = obj.insertProject("INDIA BAZAR","1236","done","rmudunuri","abcdefghijklmnopqrstuvwxyz","34313231");
 		//System.out.println(result);
-		
+		List<Project> projList = obj.selectProject();
+		System.out.println(projList.toString());
 	}
 
 }

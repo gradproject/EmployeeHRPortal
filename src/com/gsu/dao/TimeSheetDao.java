@@ -13,34 +13,9 @@ import java.util.List;
 
 import com.gsu.bean.TimeSheet;
 
-public class TimeSheetDao {
+public class TimeSheetDao extends EmployeeConnectDao{
 
-	public Connection getConnection() {
-
-		String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-		// protocol:typeof server://hostname:portnumber;databasename;
-
-		Connection connection = null;
-
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("SQLException while loading SQLServerDriver :: "
-					+ e.getMessage());
-		}
-
-		try {
-			connection = DriverManager.getConnection(connectionString, "sa",
-					"sqladmin");
-			// connectionString,username,password.
-			System.out.println("Connection established successfully :: ");
-		} catch (SQLException e) {
-			System.out.println("SQLException while connecting to database :: "
-					+ e.getMessage());
-		}
-
-		return connection;
-	}
+	
 
 	public int insertTimeSheet(String empId, String projectId, String date,
 			String workHours, String approved) {
@@ -192,8 +167,8 @@ public class TimeSheetDao {
 //		List<TimeSheet> list = timeSheetDaoObj.selectTimeSheet("njyothi","2015-10-25","2015-10-31","1");
 //		System.out.println(list.toString());
 		
-//		List<TimeSheet> tsList = timeSheetDaoObj.listunApprovedTimeSheet("1235");
-//		System.out.println(tsList.toString());
+		List<TimeSheet> tsList = timeSheetDaoObj.listunApprovedTimeSheet("1235");
+		System.out.println(tsList.toString());
 		
 //		int rowsUpdated = timeSheetDaoObj.approveTimeSheet("9990", "njyothi", "2015-10-11");
 //		System.out.println("Approve time sheet = "+rowsUpdated);

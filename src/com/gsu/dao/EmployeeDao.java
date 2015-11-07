@@ -11,34 +11,8 @@ import java.util.List;
 import com.gsu.bean.Employee;
 import com.gsu.bean.LoginForm;
 
-public class EmployeeDao {
+public class EmployeeDao extends EmployeeConnectDao{
 
-	public Connection getConnection() {
-
-		String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-		// protocol:typeof server://hostname:portnumber;databasename;
-
-		Connection connection = null;
-
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("SQLException while loading SQLServerDriver :: "
-					+ e.getMessage());
-		}
-
-		try {
-			connection = DriverManager.getConnection(connectionString, "sa",
-					"sqladmin");
-			// connectionString,username,password.
-			System.out.println("Connection established successfully :: ");
-		} catch (SQLException e) {
-			System.out.println("SQLException while connecting to database :: "
-					+ e.getMessage());
-		}
-
-		return connection;
-	}
 
 	public Employee selectEmployee(String empId) {
 		// String finalResult = null;
@@ -470,6 +444,9 @@ public class EmployeeDao {
 		// String result = obj.selectEmployee("dmudunuri");
 		// int result = obj.insertEmployee("divakar","Divakar","","Mudunuri",
 		// "divakar@gmail.com","342341421421","dev", "Sr.Java Developer","8");
+		
+		List<Employee> empList = obj.selectAllEmployee();
+		System.out.println(empList.toString());
 	}
 
 }

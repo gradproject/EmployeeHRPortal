@@ -5,27 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ProjectDeptMapDao {
+public class ProjectDeptMapDao extends EmployeeConnectDao{
 
-	public Connection getConnection(){
-		Connection connection = null;
-		String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-		//protocol:typeof server://hostname:portnumber;databasename;
-		
-		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("ClassNotFoundException :: "+e.getMessage());
-		}
-		try {
-			connection = DriverManager.getConnection(connectionString,"sa","sqladmin");
-			System.out.println("Connection has been successfully established ");
-		} catch (SQLException e) {
-			System.out.println("SQLException while connecting to database :: "+e.getMessage());
-		}
-		
-		return connection;
-	}
 	
 	public int insertPrjDeptMap(String projectId, String deptId, String hoursAllocated){
 		int rowsUpdated = 0;
@@ -75,6 +56,8 @@ public class ProjectDeptMapDao {
 		ProjectDeptMapDao obj = new ProjectDeptMapDao();
 //		int count = obj.insertPrjDeptMap("1235", "10", "50");
 //		System.out.println(count);
+		String s = obj.selectPrjDeptMap();
+		System.out.println(s);
 		
 	}
 }
