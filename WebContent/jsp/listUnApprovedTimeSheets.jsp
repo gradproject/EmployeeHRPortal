@@ -15,6 +15,8 @@
 	<%@ include file="includes/navBar.jsp"%>
 
 	<div class="container theme-showcase" role="main">
+	
+		<%@ include file="includes/messagePopup.jsp"%>
 
 		<div class="row read-only---" style="padding-top: -20px;">
 
@@ -40,6 +42,7 @@
 						<div class="panel-body">
 						<form name="" action="/EmployeeHRPortal/ApproveTimeSheet" method="post">
 							<div class="table-responsive">
+								
 								<table class="table table-stripped">
 									<thead>
 										<tr>
@@ -77,7 +80,9 @@
 								</table>
 							</div>
 							<div class="col-sm-12">
+							<input type="hidden" name="projectId"  id="projectId" value="<c:out value="${projectId}" ></c:out>"/>
 									<button type="submit" class="btn btn-success btn-sm">Submit</button>
+								<a href="/EmployeeHRPortal/ListProjectByManager">	<button type="button" class="btn btn-primary">Back</button></a>
 								</div>
 						</form>
 						</div>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,8 +31,13 @@ public class ApproveTimeSheet extends HttpServlet {
 		
 		String[] approveTimeSheet =  request.getParameterValues("approveTimeSheet");
 		
+		String projectId = request.getParameter("projectId");
+		
 		TimeSheetDao timeSheetDaoObj = new TimeSheetDao();
 			
+		
+		int countOfApprovedTimeSheets = 0;
+		
 		for(int i = 0; i < approveTimeSheet.length; i++){
 			//System.out.println("Parameters Are :: "+approveTimeSheet[i]);
 			String temp = approveTimeSheet[i];
@@ -56,11 +62,26 @@ public class ApproveTimeSheet extends HttpServlet {
 			}
 			System.out.println(timeSheetObj.toString());
 			
-			int timeSheetsApproved = timeSheetDaoObj.approveTimeSheet(timeSheetObj.getProjectId(),timeSheetObj.getEmpId(), timeSheetObj.getDate());
+			int timeSheetsApproved  = timeSheetDaoObj.approveTimeSheet(timeSheetObj.getProjectId(),timeSheetObj.getEmpId(), timeSheetObj.getDate());
 			
-			PrintWriter out = response.getWriter();
-			out.println(timeSheetsApproved+" timeSheets have been approved");
+//			PrintWriter out = response.getWriter();
+//			out.println(timeSheetsApproved+" timeSheets have been approved");
+			countOfApprovedTimeSheets = timeSheetsApproved + countOfApprovedTimeSheets;
+			
+			
 		}
+		String successMessage = countOfApprovedTimeSheets+" rows updated successfully into TimeSheet Table "+"\n"+"timeSheets have been approved";
+		
+		String failureMessage = "Dulpicate Value. Please enter the values again!!";
+		if(countOfApprovedTimeSheets > 0){
+			 request.setAttribute("successMessage",successMessage);
+		} else {
+		request.setAttribute("failureMessage",failureMessage);
+		}
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/ListUnApprovedTimeSheets?projectId="+projectId);
+		rd.forward(request, response);
 	}
 
 }

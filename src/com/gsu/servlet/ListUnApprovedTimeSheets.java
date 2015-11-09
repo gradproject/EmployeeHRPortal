@@ -37,6 +37,9 @@ public class ListUnApprovedTimeSheets extends HttpServlet {
 	
 	request.setAttribute("timesheetList", timesheetList);
 	
+	
+	request.setAttribute("projectId",projectId);
+	
 	RequestDispatcher rd = request.getRequestDispatcher("jsp/listUnApprovedTimeSheets.jsp");
 	rd.forward(request, response);
 	
