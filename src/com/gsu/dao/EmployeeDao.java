@@ -14,6 +14,30 @@ import com.gsu.bean.LoginForm;
 public class EmployeeDao extends EmployeeConnectDao{
 
 
+	
+	public List<Employee> selectManager(){
+		Connection connection = getConnection();
+		Statement statement = null;
+		List<Employee> managerList = new ArrayList<Employee>();
+		
+		try{
+			statement = connection.createStatement();
+			String selectQuery = "select emp_id, emp_firstname from employee_jobs_portal.dbo.employee where role_id = '2';";
+			ResultSet rs = statement.executeQuery(selectQuery);
+			while(rs.next()){
+				Employee manager = new Employee();
+				manager.setEmpId(rs.getString("emp_id"));
+				manager.setEmpFirstName(rs.getString("emp_firstname"));
+				managerList.add(manager);
+			}
+			
+		}catch(SQLException e){
+			System.out.println("SQLException while selecting manager list from employee table. "+e.getMessage());
+		}
+		
+		return managerList;
+	}
+	
 	public Employee selectEmployee(String empId) {
 		// String finalResult = null;
 		Connection connection = getConnection();
@@ -431,8 +455,11 @@ public class EmployeeDao extends EmployeeConnectDao{
 		// int result = obj.insertEmployee("divakar","Divakar","","Mudunuri",
 		// "divakar@gmail.com","342341421421","dev", "Sr.Java Developer","8");
 		
-		List<Employee> empList = obj.selectAllEmployee();
-		System.out.println(empList.toString());
+//		List<Employee> empList = obj.selectAllEmployee();
+//		System.out.println(empList.toString());
+		
+		List<Employee> managerList = obj.selectManager();
+		System.out.println(managerList.toString());
 	}
 
 }

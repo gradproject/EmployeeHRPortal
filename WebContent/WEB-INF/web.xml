@@ -244,4 +244,24 @@
     <servlet-name>WelcomeServlet</servlet-name>
     <url-pattern>/WelcomeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AssignProjectManagerServlet</display-name>
+    <servlet-name>AssignProjectManagerServlet</servlet-name>
+    <servlet-class>com.gsu.servlet.AssignProjectManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AssignProjectManagerServlet</servlet-name>
+    <url-pattern>/AssignProjectManagerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IntialiseProjectManagerData</display-name>
+    <servlet-name>IntialiseProjectManagerData</servlet-name>
+    <servlet-class>com.gsu.servlet.IntialiseProjectManagerData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IntialiseProjectManagerData</servlet-name>
+    <url-pattern>/IntialiseProjectManagerData</url-pattern>
+  </servlet-mapping>
 </web-app>

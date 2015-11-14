@@ -38,6 +38,7 @@
 										Department</a></li>
 								<li><a href="/EmployeeHRPortal/DepartmentListServlet">List of
 										Departments</a></li>
+								<li><a href="/EmployeeHRPortal/IntialiseProjectManagerData">Assign ProjectManager</a></li>
 							</ul></li>
 					</c:if>
 

@@ -50,6 +50,7 @@ public class AssignEmployeeDeptData extends HttpServlet {
 
 			Employee emp = empDaoObj.selectEmployee(empId);
 
+			System.out.println("Employee details are : "+emp.toString());
 			request.setAttribute("emp", emp);
 
 			RequestDispatcher requestDispatcher = request

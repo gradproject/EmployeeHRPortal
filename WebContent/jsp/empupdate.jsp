@@ -28,7 +28,7 @@
 	<%@ include file="includes/navBar.jsp"%>
 
 	<div class="container theme-showcase" role="main">
-<%@ include file="includes/messagePopup.jsp"%>
+		<%@ include file="includes/messagePopup.jsp"%>
 		<div class="row read-only---" style="padding-top: -20px;">
 
 			<div class="col-lg-12">
@@ -77,7 +77,8 @@
 											</div>
 											<div class="col-sm-10  pull-left">
 												<input kl_virtual_keyboard_secure_input="on" name="empId"
-													id="empId" class="form-control fixed_size_inputs input-sm"
+													id="empId" value="<c:out value="${emp.empId}" />"
+													class="form-control fixed_size_inputs input-sm"
 													maxlength="20" required="required" type="text">
 
 											</div>
@@ -96,6 +97,7 @@
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on"
 													name="empFirstName" id="empFirstName"
+													value="<c:out value="${emp.empFirstName}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="45" required="required" type="text">
 											</div>
@@ -110,6 +112,7 @@
 											<div class="col-sm-6  pull-left">
 												<input kl_virtual_keyboard_secure_input="on"
 													id="empMiddleName" name="empMiddleName"
+													value="<c:out value="${emp.empMiddleName}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="45" type="text">
 											</div>
@@ -124,6 +127,7 @@
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on"
 													id="empLastName" name="empLastName"
+													value="<c:out value="${emp.empLastName}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="45" required="required" type="text">
 											</div>
@@ -139,7 +143,8 @@
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on" id="empEmailId"
-													name="empEmailId" value=""
+													name="empEmailId"
+													value="<c:out value="${emp.empEmailId}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="20" required="required" type="text">
 											</div>
@@ -153,7 +158,8 @@
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on"
-													id="phoneNumber" name="phoneNumber" value=""
+													id="phoneNumber" name="phoneNumber"
+													value="<c:out value="${emp.phoneNumber}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="20" required="required" type="text">
 											</div>
@@ -169,13 +175,14 @@
 													Id</label>
 											</div>
 											<div class="col-sm-10  pull-left">
-												<select name="deptId" id="deptId" value="${emp.deptId}"
+												<select name="deptId" id="deptId"
+													"
 													class="form-control pull-left input-sm">
 													<!--  the c forEach tag is accepting the list object through items attribute
 						it is iterating the data over the list and then storing each object in the department variable  -->
 													<c:forEach items="${deptList}" var="dept">
 														<option value="<c:out value ="${dept.deptId}"/>"
-															<c:if test="${fn:contains(emp.deptId, dept.deptId)}">selected</c:if>><c:out
+															<c:if test="${fn:contains(dept.deptId, emp.deptId)}">selected</c:if>><c:out
 																value="${dept.deptName}" /></option>
 													</c:forEach>
 												</select>
@@ -194,7 +201,8 @@
 													<!--  the c forEach tag is accepting the list object through items attribute
 						it is iterating the data over the list and then storing each object in the department variable  -->
 													<c:forEach items="${roleList}" var="role">
-														<option value="<c:out value ="${role.roleId}"/>"><c:out
+														<option value="<c:out value ="${role.roleId}"/>" <c:if
+																test="${fn:contains(role.roleId, emp.roleId)}">selected</c:if>><c:out
 																value="${role.roleName}" /></option>
 													</c:forEach>
 												</select>
@@ -213,7 +221,7 @@
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on" id="empDesg"
-													name="empDesg"
+													name="empDesg" value="<c:out value="${emp.empDesg}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="250" required="required" type="text">
 											</div>
@@ -229,7 +237,7 @@
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on" id="empExp"
-													name="empExp" value=""
+													name="empExp" value="<c:out value="${emp.empExp}" />"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="45" required="required" type="text">
 											</div>
