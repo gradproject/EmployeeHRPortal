@@ -85,6 +85,7 @@ System.out.println("target page one= "+targetPage);
 			HttpSession session = request.getSession();
 			session.setAttribute("userLoggedIn", "true");
 			session.setAttribute("adminUserName", adminUserName);
+			session.setAttribute("role","admin");
 			
 			targetPage = "/EmployeeListServlet";
 			RequestDispatcher requestdispatcherObj = request

@@ -24,7 +24,7 @@ public class ProjectDao extends EmployeeConnectDao {
 		String description = null;
 		Connection connection = getConnection();
 		Statement statement = null;
-		String selectQuery = "select project_name,project_id, project_status, emp_id, description, total_cost from employee_jobs_portal.dbo.project;";
+		String selectQuery = "select project_name,project_id, project_status, description, total_cost from employee_jobs_portal.dbo.project;";
 	     
 		
 		List<Project> projectList = new ArrayList<Project>();
@@ -36,16 +36,16 @@ public class ProjectDao extends EmployeeConnectDao {
 				projectId = rs.getString("project_id");
 				projectStatus = rs.getString("project_status");
 				description = rs.getString("description");
-				empId = rs.getString("emp_id");
+				//empId = rs.getString("emp_id");
 				totalCost = rs.getString("total_cost");
 				
-				System.out.println("Project Name is :: "+projectName+", Project Id is :: "+projectId+", Project Status is :: "+projectStatus+", description is :: "+description+", emp id is :: "+empId+", total cost is :: "+totalCost);
+				System.out.println("Project Name is :: "+projectName+", Project Id is :: "+projectId+", Project Status is :: "+projectStatus+", description is :: "+description+",  total cost is :: "+totalCost);
 				
 				Project projectObj = new Project();
 				projectObj.setProjectName(projectName);
 				projectObj.setProjectId(projectId);
 				projectObj.setDescription(description);
-				projectObj.setEmpId(empId);
+				//projectObj.setEmpId(empId);
 				projectObj.setProjectStatus(projectStatus);
 				projectObj.setTotalCost(totalCost);
 				
@@ -91,7 +91,7 @@ public class ProjectDao extends EmployeeConnectDao {
 		
 		try {
 			statement = connection.createStatement();
-			String selectQuery = "select project_name, project_id, project_status, description, emp_id, total_cost from employee_jobs_portal.dbo.project where emp_id = '"+empId+"';";
+			String selectQuery = "select p.project_name, p.project_id, p.project_status, p.description, p.total_cost, pm.emp_id from employee_jobs_portal.dbo.project as p, employee_jobs_portal.dbo.project_manager_map as pm where pm.emp_id = '"+empId+"';";
 		
 		ResultSet rs = statement.executeQuery(selectQuery);
 		while(rs.next()){
@@ -157,13 +157,13 @@ System.out.println("SQLException while creating statement in list project by man
 	}
 	public static void main(String[] args){
 		ProjectDao obj = new ProjectDao();
-//	List<Project> prjList = obj.listProjectsByManager("rmudunuri");
-//	System.out.println(prjList.toString());
+	List<Project> prjList = obj.listProjectsByManager("rmudunuri");
+	System.out.println(prjList.toString());
 			//obj.selectProject();
 		//int result = obj.insertProject("INDIA BAZAR","1236","done","rmudunuri","abcdefghijklmnopqrstuvwxyz","34313231");
 		//System.out.println(result);
-		List<Project> projList = obj.selectProject();
-		System.out.println(projList.toString());
+//		List<Project> projList = obj.selectProject();
+//		System.out.println(projList.toString());
 	}
 
 }

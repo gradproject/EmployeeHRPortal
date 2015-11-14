@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import com.gsu.bean.Employee;
 import com.gsu.bean.LoginForm;
+import com.gsu.bean.Role;
 import com.gsu.dao.EmployeeDao;
+import com.gsu.dao.RoleDao;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -79,10 +81,17 @@ public class LoginServlet extends HttpServlet {
 			requestDispatcherObj.forward(request, response);
 		} else {
 			HttpSession session = request.getSession();
+			
+			
 			session.setAttribute("userLoggedIn", "true");
 			session.setAttribute("empId", empId);
 			session.setAttribute("empName", empName);
+			
+			RoleDao roleDaoObj = new RoleDao();
+			Role roleObj = roleDaoObj.selectRole(empId);
+			session.setAttribute("role",roleObj.getRoleName());
 
+			
 			if ("employeelist.jsp".equalsIgnoreCase(targetPage)) {
 				EmployeeDao emplyeeDaoObj = new EmployeeDao();
 				List<Employee> employeeList = employeeDaoObj

@@ -74,10 +74,10 @@
 							</div>
 						</form>
 					</div>
-<!-- 					<div class="panel-footer"> -->
-<!-- 						Not Registered? <a href="/EmployeeHRPortal/jsp/employee.jsp" -->
-<!-- 							class="">Register here</a> -->
-<!-- 					</div> -->
+					<div class="panel-footer">
+						<a href="/EmployeeHRPortal/jsp/adminLogin.jsp"
+							class="">Login as Admin</a>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-3"></div>

@@ -45,7 +45,7 @@
 											<th>Project Id</th>
 											<th>Project Name</th>
 											<th>Project Status</th>
-											<th>Employee Id</th>
+<!-- 											<th>Employee Id</th> -->
 											<th>Description</th>
 											<th>Total Cost</th>
 										</tr>
@@ -58,7 +58,7 @@
 															value="${prj.projectId}" /></a></td>
 												<td><c:out value="${prj.projectName}" /></td>
 												<td><c:out value="${prj.projectStatus}" /></td>
-												<td><c:out value="${prj.empId}" /></td>
+<%-- 												<td><c:out value="${prj.empId}" /></td> --%>
 												<td><c:out value="${prj.description}" /></td>
 												<td><c:out value="${prj.totalCost}" /></td>
 											</tr>
