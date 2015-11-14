@@ -22,7 +22,7 @@
 
 				<div class="page-header--">
 
-					<h3>List Projects</h3>
+					<h3>List of Projects</h3>
 
 				</div>
 				<!-- /page-header-- -->

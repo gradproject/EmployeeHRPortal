@@ -48,7 +48,7 @@ public class ProjectServlet extends HttpServlet {
 //		writer.println("Project Name == "+projectName+"<br>");
 //		writer.println("Project ID == "+projectId);
 		
-		String successMessage = "rows updated successfully into Project Table."+"\n"+"Project Name = "+projectName+" \n "+"Project ID = "+projectId;
+		String successMessage = "Project is created successfully "+"\n"+"Project Name = "+projectName+" \n "+"Project ID = "+projectId;
 		
 		String failureMessage = "Dulpicate Value. Please enter the values again!!";
 		if(rowsUpdated > 0){

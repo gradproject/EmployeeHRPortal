@@ -35,9 +35,9 @@ public class AssignEmployeeProject extends HttpServlet {
 	writer.println(rowsUpdated+" : row has been inserted in the projectDeptMap table. "+"<br>");
 	writer.println("project id = "+projectId +", department id = "+deptId+", emp id = "+empId);
 		
-		String successMessage = rowsUpdated+" : row has been inserted in the projectDeptMap table. ";
+		String successMessage = "Employee is added to the project";
 		
-		String failureMessage = "Could not insert data into database. Please enter data agian!!";
+		String failureMessage = "Error!! Please re-enter the values";
 		
 		
 		if(rowsUpdated > 0){

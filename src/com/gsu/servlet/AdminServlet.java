@@ -32,7 +32,7 @@ public class AdminServlet extends HttpServlet {
 	int rowsUpdated =	adminDaoObj.insertAdmin(adminUserName, adminPassword);
 	//System.out.println(rowsUpdated+" : rows have been inserted into admin table. ");
 	response.setContentType("text/html");
-	String successMessage = rowsUpdated+" :: rows updated successfully into Admin Table.";
+	String successMessage =  "Admin is created successfully.";
 	
 	String failureMessage = "Dulpicate Value. Please enter the values again!!";
 	if(rowsUpdated > 0){

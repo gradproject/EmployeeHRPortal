@@ -6,7 +6,7 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee Connect - Assign Employee Project</title>
+<title>Employee Connect - Assign Employee to Project</title>
 
 </head>
 
@@ -24,7 +24,7 @@
 
 				<div class="page-header--">
 
-					<h3>Assign Employee Project</h3>
+					<h3>Assign Employee to Project </h3>
 
 				</div>
 				<!-- /page-header-- -->
@@ -50,7 +50,7 @@
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
 												<label class="control-label" for="inputUserType1">Employee
-													Id</label>
+													</label>
 											</div>
 											<div class="col-sm-12  pull-left">
 
@@ -77,7 +77,7 @@
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
 												<label class="control-label" for="inputUserType1">Department
-													ID</label>
+													</label>
 											</div>
 											<div class="col-sm-10  pull-left">
 												<select name="deptId" id="deptId"
@@ -101,7 +101,7 @@
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
 												<label class="control-label" for="inputUserType1">Project
-													ID</label>
+													</label>
 											</div>
 											<div class="col-sm-10  pull-left">
 												<select name="prjId" id="prjId"

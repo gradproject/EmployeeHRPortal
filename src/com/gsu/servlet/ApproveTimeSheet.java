@@ -70,7 +70,7 @@ public class ApproveTimeSheet extends HttpServlet {
 			
 			
 		}
-		String successMessage = countOfApprovedTimeSheets+" rows updated successfully into TimeSheet Table "+"\n"+"timeSheets have been approved";
+		String successMessage = "TimeSheets have been approved";
 		
 		String failureMessage = "Dulpicate Value. Please enter the values again!!";
 		if(countOfApprovedTimeSheets > 0){

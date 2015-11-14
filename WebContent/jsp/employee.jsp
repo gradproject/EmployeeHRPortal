@@ -14,7 +14,7 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - Create New Employee</title>
+<title>Employee HR Portal - Create Employee</title>
 
 </head>
 
@@ -32,7 +32,7 @@
 
 				<div class="page-header--">
 
-					<h3>Create New Employee</h3>
+					<h3>Create Employee</h3>
 
 				</div>
 				<!-- /page-header-- -->

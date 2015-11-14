@@ -6,7 +6,7 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - Project Department Map Page</title>
+<title>Employee HR Portal - Assign Project to Department</title>
 
 </head>
 
@@ -23,7 +23,7 @@
 
 				<div class="page-header--">
 
-					<h3>Project Department Map Page</h3>
+					<h3>Assign Project to Department</h3>
 
 				</div>
 				<!-- /page-header-- -->
@@ -46,7 +46,7 @@
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Project ID</label>
+												<label class="control-label" for="inputUserType1">Project</label>
 											</div>
 											<div class="col-sm-10  pull-left">
 												<select name="prjId" id="prjId"
@@ -65,7 +65,7 @@
 									<div class="col-md-8">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Department Id</label>
+												<label class="control-label" for="inputUserType1">Department</label>
 											</div>
 											<div class="col-sm-12  pull-left">
 												<select name="deptId" id="deptId"

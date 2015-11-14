@@ -3,6 +3,7 @@ package com.gsu.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +45,18 @@ public class DepartmentServlet extends HttpServlet {
 			}
 		writer.println("department Name == "+departmentName+"<br>");
 		writer.println("department Id == "+departmentId);
+		String successMessage = " Department is added successfully. Department id =  "+departmentId +", Department Name = "+departmentName;
+		String failureMessage = "Error!! Please check the values";
+		
+		if(rowsUpdated > 0){
+			request.setAttribute("successMessage", successMessage);	
+			}else {
+				request.setAttribute("failureMessage", failureMessage);
+			}
+			
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/department.jsp");
+			requestDispatcher.forward(request,response); 
+			
 		
 	}
 

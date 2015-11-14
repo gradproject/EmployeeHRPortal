@@ -53,15 +53,14 @@ public class EmployeeServlet extends HttpServlet {
 			rowsUpdated = empDaoObj.insertEmployee(empId, empFirstName,
 					empMiddleName, empLastName, empEmailId, phoneNumber,
 					deptId, empDesg, empExp, password, roleId);
-			successMessage = rowsUpdated
-					+ " rows have been successfully inserted into Employee Table "
+			successMessage = 
+					 " Employee is created successfully"
 					+ "<br>";
 		} else if ("Update".equals(submitValue)) {
 			rowsUpdated = empDaoObj.updateEmployee(empId, empFirstName,
 					empMiddleName, empLastName, empEmailId, phoneNumber,
 					deptId, empDesg, empExp, roleId);
-			successMessage = rowsUpdated
-					+ " rows have been successfully updated into Employee Table "
+			successMessage =  " Employee is updated successfully"
 					+ "<br>";
 		}
 

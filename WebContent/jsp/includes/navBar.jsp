@@ -36,7 +36,7 @@
 										Admin</a></li>
 								<li><a href="/EmployeeHRPortal/jsp/department.jsp">Create
 										Department</a></li>
-								<li><a href="/EmployeeHRPortal/DepartmentListServlet">List
+								<li><a href="/EmployeeHRPortal/DepartmentListServlet">List of
 										Departments</a></li>
 							</ul></li>
 					</c:if>
@@ -65,7 +65,7 @@
 								<!-- 								<li><a -->
 								<!-- 									href="/EmployeeHRPortal/ListEmployeeByProject?projectId=1235">List -->
 								<!-- 										Employee By Project</a></li> -->
-								<li><a href="/EmployeeHRPortal/ProjectListServlet">List
+								<li><a href="/EmployeeHRPortal/ProjectListServlet">List of
 										Projects</a></li>
 								<li><a href="/EmployeeHRPortal/ListProjectByManager">Current
 										Projects</a></li>

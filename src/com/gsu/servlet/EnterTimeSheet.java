@@ -84,18 +84,17 @@ public class EnterTimeSheet extends HttpServlet {
 
 		}
 
-		PrintWriter out = response.getWriter();
-		out.println(totalRowsUpdated
-				+ " :: rows have been successfully inserted itno time sheet table!!");
+//		PrintWriter out = response.getWriter();
+//		out.println(totalRowsUpdated
+//				+ " :: rows have been successfully inserted itno time sheet table!!");
+//
+//		System.out
+//				.println(totalRowsUpdated
+//						+ " :: rows have been successfully inserted itno time sheet table!!");
 
-		System.out
-				.println(totalRowsUpdated
-						+ " :: rows have been successfully inserted itno time sheet table!!");
+		String successMessage = " Timesheet is submitted successfully!!";
 
-		String successMessage = totalRowsUpdated
-				+ " :: rows have been successfully inserted itno time sheet table!!";
-
-		String failureMessage = "Could not insert time sheet data into database!!";
+		String failureMessage = "Error!! Re-enter the timesheet";
 		if (totalRowsUpdated > 0) {
 			request.setAttribute("successMessage", successMessage);
 		} else {

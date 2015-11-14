@@ -22,7 +22,7 @@
 
 				<div class="page-header--">
 
-					<h3>List Employees</h3>
+					<h3>List of Employees</h3>
 
 				</div>
 

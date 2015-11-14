@@ -22,7 +22,7 @@
 
 				<div class="page-header--">
 
-					<h3>List Departments</h3>
+					<h3>List of Departments</h3>
 
 				</div>
 
