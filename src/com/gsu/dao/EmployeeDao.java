@@ -428,7 +428,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 
 				String loginPassword = loginForm.getPassword();
 				String registeredPassword = employeeObj.getPassword();
-				if (registeredPassword.equals(loginPassword)) {
+				if (loginPassword.equals(registeredPassword)) {
 
 					EmployeeDao employeeDaoObj = new EmployeeDao();
 
