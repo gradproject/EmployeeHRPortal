@@ -7,14 +7,14 @@ import java.sql.SQLException;
 
 public class EmployeeConnectDao {
 
-	public static final String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
-	// protocol:typeof server://hostname:portnumber;databasename;
-	public static final String dbusername = "sa";
-	public static final String dbpassword = "sqladmin";
+//	public static final String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=employee_jobs_portal;";
+//	// protocol:typeof server://hostname:portnumber;databasename;
+//	public static final String dbusername = "sa";
+//	public static final String dbpassword = "sqladmin";
 	
-//public static final String connectionString = "jdbc:sqlserver://l9je6yyylp.database.windows.net:1433;database=employee_jobs_portal;user=smudunuri@l9je6yyylp;password={your_password_here};encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-//public static final String dbusername = "smudunuri";
-//public static final String dbpassword = "Grad2015";
+public static final String connectionString = "jdbc:sqlserver://l9je6yyylp.database.windows.net:1433;database=employee_jobs_portal;user=smudunuri@l9je6yyylp;password={your_password_here};encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+public static final String dbusername = "smudunuri";
+public static final String dbpassword = "Grad2015";
 	
 	public Connection getConnection(){
 		Connection connection = null;

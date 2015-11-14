@@ -28,7 +28,7 @@ public class ProjectServlet extends HttpServlet {
 		// project jsp I am getting project name and project id.
 		String projectName = request.getParameter("prjName");
 		String projectId = request.getParameter("prjId");
-		String projectStatus = request.getParameter("projStatus");
+		String projectStatus = request.getParameter("prjStatus");
 		String totalCost = request.getParameter("totalCost");
 		String description = request.getParameter("description");
 		

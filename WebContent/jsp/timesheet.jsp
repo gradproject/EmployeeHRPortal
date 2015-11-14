@@ -204,7 +204,7 @@
 					</div>
 				</div>
 				<div class="row">&nbsp;</div>
-				<form name="timeSheetForm" id="timeSheetForm"
+				<form name="timeSheetForm" id="timeSheetForm" 
 					action="/EmployeeHRPortal/EnterTimeSheet" method="post">
 					<div class="table-responsive">
 

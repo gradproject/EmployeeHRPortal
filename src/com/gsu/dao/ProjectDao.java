@@ -91,7 +91,7 @@ public class ProjectDao extends EmployeeConnectDao {
 		
 		try {
 			statement = connection.createStatement();
-			String selectQuery = "select p.project_name, p.project_id, p.project_status, p.description, p.total_cost, pm.emp_id from employee_jobs_portal.dbo.project as p, employee_jobs_portal.dbo.project_manager_map as pm where pm.emp_id = '"+empId+"';";
+			String selectQuery = "select p.project_name, p.project_id, p.project_status, p.description, p.total_cost, pm.emp_id from employee_jobs_portal.dbo.project as p, employee_jobs_portal.dbo.project_manager_map as pm where p.project_id = pm.project_id and pm.emp_id = '"+empId+"';";
 		
 		ResultSet rs = statement.executeQuery(selectQuery);
 		while(rs.next()){
