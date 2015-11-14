@@ -114,20 +114,6 @@
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Employee 
-													ID</label>
-											</div>
-											<div class="col-sm-10  pull-left">
-												<input kl_virtual_keyboard_secure_input="on" name="empId"
-													id="empId" class="form-control fixed_size_inputs input-sm"
-													maxlength="20" required="required" type="text">
-
-											</div>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group pull-left">
-											<div class="col-sm-12  pull-left">
 												<label class="control-label" for="inputUserType1">Total Cost</label>
 											</div>
 											<div class="col-sm-10  pull-left">

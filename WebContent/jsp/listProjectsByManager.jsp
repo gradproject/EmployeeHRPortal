@@ -6,7 +6,7 @@
 <head>
 <%@ include file="includes/header.jsp"%>
 
-<title>Employee HR Portal - List Projects By Manager</title>
+<title>Employee HR Portal - Current Projects</title>
 
 </head>
 <body>
@@ -22,7 +22,7 @@
 
 				<div class="page-header--">
 
-					<h3>List Projects By Manager</h3>
+					<h3>Current Projects</h3>
 
 				</div>
 				<!-- /page-header-- -->

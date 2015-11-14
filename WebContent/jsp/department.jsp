@@ -16,6 +16,8 @@
 
 	<div class="container theme-showcase" role="main">
 
+<%@ include file="includes/messagePopup.jsp"%>
+
 		<div class="row read-only---" style="padding-top: -20px;">
 
 			<div class="col-lg-12">

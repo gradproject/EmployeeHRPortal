@@ -123,12 +123,14 @@ System.out.println("SQLException while creating statement in list project by man
 	}
 	
 	
-	public int insertProject(String projectName, String projectId, String projectStatus, String empId, String description, String totalCost){
+	public int insertProject(String projectName, String projectId, String projectStatus,  String description, String totalCost){
 		int rowsUpdated = 0;
 		Connection connection = getConnection();
 		Statement statement = null;
-		String insertQuery = "insert into employee_jobs_portal.dbo.project (project_name,project_id, project_status, description, emp_id, total_cost) values ('"+projectName+"','"+projectId+"','"+projectStatus+"','"+description+"','"+empId+"',"+totalCost+");";
 		try {
+			
+			statement= connection.createStatement();
+			String insertQuery = "insert into employee_jobs_portal.dbo.project (project_name, project_id, project_status, description, total_cost) values ('"+projectName+"','"+projectId+"','"+projectStatus+"','"+description+"','"+totalCost+"')";
 			System.out.println("insert query :: "+insertQuery);
 			statement = connection.createStatement();
 			rowsUpdated = statement.executeUpdate(insertQuery);

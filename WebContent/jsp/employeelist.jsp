@@ -40,23 +40,30 @@
 								<table class="table table-stripped">
 									<thead>
 										<tr>
-											<th>Employee Id</th>
+											<c:if test="${fn:contains(sessionScope.role, 'admin')}">
+												<th>Employee Id</th>
+											</c:if>
 											<th>Employee First Name</th>
 											<th>Employee Middle Name</th>
 											<th>Employee Last Name</th>
 											<th>Email Id</th>
 											<th>Phone Number</th>
-											<th>Deptartment Id</th>
+											<th>Deptartment</th>
 											<th>Employee Desgination</th>
 											<th>Employee Experience</th>
+											<th>Role</th>
 										</tr>
 									</thead>
+
 									<tbody>
+
 										<c:forEach items="${empList}" var="emp">
 											<tr>
-												<td><a
-													href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
-															value="${emp.empId}" /></a></td>
+												<c:if test="${fn:contains(sessionScope.role, 'admin')}">
+													<td><a
+														href="/EmployeeHRPortal/AssignEmployeeDeptData?empId=<c:out value ="${emp.empId}"/>"><c:out
+																value="${emp.empId}" /></a></td>
+												</c:if>
 												<td><c:out value="${emp.empFirstName}" /></td>
 												<td><c:out value="${emp.empMiddleName}" /></td>
 												<td><c:out value="${emp.empLastName}" /></td>
@@ -65,6 +72,8 @@
 												<td><c:out value="${emp.deptId}" /></td>
 												<td><c:out value="${emp.empDesg}" /></td>
 												<td><c:out value="${emp.empExp}" /></td>
+												<td><c:out value="${emp.roleId}" /></td>
+
 											</tr>
 										</c:forEach>
 									</tbody>

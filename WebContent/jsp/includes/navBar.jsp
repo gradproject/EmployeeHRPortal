@@ -20,8 +20,8 @@
 			<c:if test="${fn:contains(sessionScope.userLoggedIn, 'true')}">
 
 				<ul class="nav navbar-nav">
-					<li class="active"><a
-						href="#">Home</a></li>
+					<!-- 					<li class="active"><a -->
+					<!-- 						href="#">Home</a></li> -->
 					<c:if test="${fn:contains(sessionScope.role, 'admin')}">
 						<li class="dropdown"><a
 							href="/EmployeeHRPortal/jsp/adminLogin.jsp"
@@ -29,12 +29,15 @@
 								class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/EmployeeHRPortal/AssignEmployeeDeptData">Create
-										New Employee</a></li>
+										Employee</a></li>
 								<li><a href="/EmployeeHRPortal/EmployeeListServlet">List
-										Employees</a></li>
+										of Employees</a></li>
 								<li><a href="/EmployeeHRPortal/jsp/admin.jsp">Create
-										New Admin</a></li>
-
+										Admin</a></li>
+								<li><a href="/EmployeeHRPortal/jsp/department.jsp">Create
+										Department</a></li>
+								<li><a href="/EmployeeHRPortal/DepartmentListServlet">List
+										Departments</a></li>
 							</ul></li>
 					</c:if>
 
@@ -54,7 +57,7 @@
 							data-toggle="dropdown">Projects <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/EmployeeHRPortal/jsp/project.jsp">Create
-										New Project</a></li>
+										Project</a></li>
 								<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData">Assign
 										Project to Department</a></li>
 								<li><a href="/EmployeeHRPortal/IntialiseEmpProjectData">Assign
@@ -64,26 +67,19 @@
 								<!-- 										Employee By Project</a></li> -->
 								<li><a href="/EmployeeHRPortal/ProjectListServlet">List
 										Projects</a></li>
-								<li><a href="/EmployeeHRPortal/ListProjectByManager">Assigned 
+								<li><a href="/EmployeeHRPortal/ListProjectByManager">Current
 										Projects</a></li>
 
 
 							</ul></li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Departments <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="/EmployeeHRPortal/jsp/department.jsp">Create
-										New Department</a></li>
-								<li><a href="/EmployeeHRPortal/IntialiseProjectDeptData">
-										Assign Project to Department</a></li>
-								<!-- 								<li><a -->
-								<!-- 									href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=10">List -->
-								<!-- 										Employee By Department</a></li> -->
-
-								<li><a href="/EmployeeHRPortal/DepartmentListServlet">List
-										Departments</a></li>
-							</ul></li>
+						<li><a href="/EmployeeHRPortal/DepartmentListServlet">Departments</a></li>
+<!-- 						<li class="dropdown"><a href="#" class="dropdown-toggle" -->
+<!-- 							data-toggle="dropdown">Departments <span class="caret"></span></a> -->
+							<!-- 							<ul class="dropdown-menu" role="menu"> --> <!-- 								<li><a -->
+							<!-- 									href="/EmployeeHRPortal/ListEmployeeByDepartment?deptId=10">List -->
+							<!-- 										Employee By Department</a></li> --> <!-- 								<li><a href="/EmployeeHRPortal/DepartmentListServlet">List -->
+							<!-- 										Departments</a></li> --> <!-- 							</ul></li> -->
 					</c:if>
 
 

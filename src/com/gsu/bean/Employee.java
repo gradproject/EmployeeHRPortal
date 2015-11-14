@@ -13,6 +13,7 @@ public class Employee {
 	String empDesg;
 	String empExp;
 	String password;
+	String roleId;
 	
 	
 	public Employee(){
@@ -20,7 +21,7 @@ public class Employee {
 	}
 
 	
-	public Employee(String empId, String empFirstName, String empMiddleName, String empLastName, String empEmailId, String phoneNumber, String deptId, String empDesg, String empExp,String password){
+	public Employee(String empId, String empFirstName, String empMiddleName, String empLastName, String empEmailId, String phoneNumber, String deptId, String empDesg, String empExp,String password, String roleId){
 		this.empId = empId;
 		this.empFirstName = empFirstName;
 		this.empMiddleName = empMiddleName;
@@ -31,6 +32,7 @@ public class Employee {
 		this.empDesg = empDesg;
 		this.empDesg = empDesg;
 		this.password = password;
+		this.roleId = roleId;
 	}
 	
 	public void setEmpId(String empId){
@@ -116,16 +118,28 @@ public class Employee {
 	}
 
 
+	public String getRoleId() {
+		return roleId;
+	}
+
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", empFirstName=" + empFirstName
 				+ ", empMiddleName=" + empMiddleName + ", empLastName="
 				+ empLastName + ", empEmailId=" + empEmailId + ", phoneNumber="
 				+ phoneNumber + ", deptId=" + deptId + ", empDesg=" + empDesg
-				+ ", empExp=" + empExp + ", password=" + password + "]";
+				+ ", empExp=" + empExp + ", password=" + password + ", roleId="
+				+ roleId + "]";
 	}
 
 
+	
 	
 	
 	

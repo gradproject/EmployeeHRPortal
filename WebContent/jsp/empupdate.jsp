@@ -2,16 +2,17 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
-<jsp:useBean id="employee" class="com.gsu.bean.Employee"/>
+<jsp:useBean id="employee" class="com.gsu.bean.Employee" />
 <jsp:setProperty name="emp" property="*" />
 <%
-String failureMessage = (String) request.getAttribute("failureMessage");
-if(failureMessage == null){
-	failureMessage = "";
-}
+	String failureMessage = (String) request
+			.getAttribute("failureMessage");
+	if (failureMessage == null) {
+		failureMessage = "";
+	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,7 @@ if(failureMessage == null){
 	<%@ include file="includes/navBar.jsp"%>
 
 	<div class="container theme-showcase" role="main">
-
+<%@ include file="includes/messagePopup.jsp"%>
 		<div class="row read-only---" style="padding-top: -20px;">
 
 			<div class="col-lg-12">
@@ -50,21 +51,17 @@ if(failureMessage == null){
 						</div>
 
 						<div class="panel-body">
-<div value="successMessageDiv"><%=failureMessage %>
-</div>
+							<div value="successMessageDiv"><%=failureMessage%>
+							</div>
 							<form id="employeeForm" name="employeeForm"
 								action="/EmployeeHRPortal/EmployeeServlet" method="post"
 								role="form">
 								<div class="row">
 									<div class="col-md-4">
 										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left"></div>
 											<div class="col-sm-12  pull-left">
-												
-											</div>
-											<div class="col-sm-12  pull-left">
-												<div data-toggle="buttons" class="btn-group">
-													
-												</div>
+												<div data-toggle="buttons" class="btn-group"></div>
 											</div>
 										</div>
 									</div>
@@ -137,7 +134,8 @@ if(failureMessage == null){
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Email Id</label>
+												<label class="control-label" for="inputUserType1">Email
+													Id</label>
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on" id="empEmailId"
@@ -150,8 +148,8 @@ if(failureMessage == null){
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Phone Number
-													</label>
+												<label class="control-label" for="inputUserType1">Phone
+													Number </label>
 											</div>
 											<div class="col-sm-12  pull-left">
 												<input kl_virtual_keyboard_secure_input="on"
@@ -167,33 +165,55 @@ if(failureMessage == null){
 									<div class="col-md-4">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
-												<label class="control-label" for="inputUserType1">Department Id</label>
+												<label class="control-label" for="inputUserType1">Department
+													Id</label>
 											</div>
 											<div class="col-sm-10  pull-left">
 												<select name="deptId" id="deptId" value="${emp.deptId}"
-												class="form-control pull-left input-sm">
-				<!--  the c forEach tag is accepting the list object through items attribute
+													class="form-control pull-left input-sm">
+													<!--  the c forEach tag is accepting the list object through items attribute
 						it is iterating the data over the list and then storing each object in the department variable  -->
-					<c:forEach items="${deptList}" var="dept">
-						<option value="<c:out value ="${dept.deptId}"/>"  <c:if test="${fn:contains(emp.deptId, dept.deptId)}">selected</c:if>><c:out value ="${dept.deptName}"/></option>
-					</c:forEach>
-				</select>
+													<c:forEach items="${deptList}" var="dept">
+														<option value="<c:out value ="${dept.deptId}"/>"
+															<c:if test="${fn:contains(emp.deptId, dept.deptId)}">selected</c:if>><c:out
+																value="${dept.deptName}" /></option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4"></div>
-									<div class="col-md-4"></div>
+									<div class="col-md-4">
+										<div class="form-group pull-left">
+											<div class="col-sm-12  pull-left">
+												<label class="control-label" for="inputUserType1">Role
+												</label>
+											</div>
+											<div class="col-sm-12  pull-left">
+												<select name="roleId" id="roleId"
+													class="form-control pull-left input-sm">
+													<!--  the c forEach tag is accepting the list object through items attribute
+						it is iterating the data over the list and then storing each object in the department variable  -->
+													<c:forEach items="${roleList}" var="role">
+														<option value="<c:out value ="${role.roleId}"/>"><c:out
+																value="${role.roleName}" /></option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+									</div>
+
 								</div>
+
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group pull-left">
 											<div class="col-sm-12  pull-left">
 												<label class="control-label" for="inputUserType1">Designation
-													</label>
+												</label>
 											</div>
 											<div class="col-sm-12  pull-left">
-												<input kl_virtual_keyboard_secure_input="on"
-													id="empDesg" name="empDesg"
+												<input kl_virtual_keyboard_secure_input="on" id="empDesg"
+													name="empDesg"
 													class="form-control fixed_size_inputs input-sm"
 													maxlength="250" required="required" type="text">
 											</div>
@@ -222,7 +242,7 @@ if(failureMessage == null){
 									<div class="col-md-4"></div>
 									<div class="col-md-8">
 										<div class="form-group fixed_size_inputs pull-right">
-											<input type="hidden" id="submit" name="submit" value="Update"/>
+											<input type="hidden" id="submit" name="submit" value="Update" />
 											<button type="submit"
 												class="col-sm-12 btn btn-success btn-sm">Submit</button>
 										</div>

@@ -31,10 +31,9 @@ public class ProjectServlet extends HttpServlet {
 		String projectStatus = request.getParameter("projStatus");
 		String totalCost = request.getParameter("totalCost");
 		String description = request.getParameter("description");
-		String empId = request.getParameter("empId");
 		
 		ProjectDao projectDaoObj = new ProjectDao();
-	int rowsUpdated =	projectDaoObj.insertProject(projectName, projectId, projectStatus, empId, description, totalCost);
+	int rowsUpdated =	projectDaoObj.insertProject(projectName, projectId, projectStatus, description, totalCost);
 		
 		
 		//to know what type of data i am going to display in the web browser.

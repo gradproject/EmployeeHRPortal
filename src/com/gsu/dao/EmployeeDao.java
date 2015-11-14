@@ -28,7 +28,8 @@ public class EmployeeDao extends EmployeeConnectDao{
 		String empDesg = null;
 		String empExperience = null;
 		String password = null;
-		String selectQuery = "select emp_id, emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience, password from employee_jobs_portal.dbo.employee where emp_id='"
+		String roleId = null;
+		String selectQuery = "select emp_id, emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience, password, role_id from employee_jobs_portal.dbo.employee where emp_id='"
 				+ empId + "';";
 
 		// List<Employee> empList = new ArrayList<Employee>();
@@ -49,6 +50,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 				empDesg = rs.getString("emp_desg");
 				empExperience = rs.getString("emp_experience");
 				password = rs.getString("password");
+				roleId = rs.getString("role_id");
 				// finalResult = "Row selected";
 
 				emp.setEmpId(empId);
@@ -61,6 +63,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 				emp.setEmpDesg(empDesg);
 				emp.setEmpExp(empExperience);
 				emp.setPassword(password);
+				emp.setRoleId(roleId);
 
 				// empList.add(emp);
 
@@ -75,6 +78,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 			System.out.println("department :: " + deptId);
 			System.out.println("desgination :: " + empDesg);
 			System.out.println("experience :: " + empExperience);
+			System.out.println("Role :: "+roleId);
 
 		} catch (SQLException e) {
 			System.out.println("SQLException while creating statement :: "
@@ -117,6 +121,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 		String empPhoneNumber = null;
 		String empDesg = null;
 		String empExperience = null;
+		
 
 		try {
 			statement = connection.createStatement();
@@ -192,11 +197,11 @@ public class EmployeeDao extends EmployeeConnectDao{
 		String empLastName = null;
 		String empEmailId = null;
 		String empPhoneNumber = null;
-		String deptId = null;
+		String deptName = null;
 		String empDesg = null;
 		String empExperience = null;
-		String selectQuery = "select emp_id, emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience from employee_jobs_portal.dbo.employee ;";
-
+		String roleName = null;
+		String selectQuery = "select emp_id, emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, d.dept_name,emp_desg, emp_experience, password,r.role_name from employee_jobs_portal.dbo.employee as e,employee_jobs_portal.dbo.role as r, employee_jobs_portal.dbo.department as d where d.dept_id = e.dept_id and r.role_id = e.role_id ;";
 		List<Employee> empList = new ArrayList<Employee>();
 
 		try {
@@ -210,9 +215,10 @@ public class EmployeeDao extends EmployeeConnectDao{
 				empLastName = rs.getString("emp_lastname");
 				empEmailId = rs.getString("emp_emailid");
 				empPhoneNumber = rs.getString("emp_phonenumber");
-				deptId = rs.getString("dept_id");
+				deptName = rs.getString("dept_name");
 				empDesg = rs.getString("emp_desg");
 				empExperience = rs.getString("emp_experience");
+				roleName = rs.getString("role_name");
 				// finalResult = "Row selected";
 
 				Employee emp = new Employee();
@@ -222,9 +228,10 @@ public class EmployeeDao extends EmployeeConnectDao{
 				emp.setEmpLastName(empLastName);
 				emp.setEmpEmailId(empEmailId);
 				emp.setPhoneNumber(empPhoneNumber);
-				emp.setDeptId(deptId);
+				emp.setDeptId(deptName);
 				emp.setEmpDesg(empDesg);
 				emp.setEmpExp(empExperience);
+				emp.setRoleId(roleName);
 
 				empList.add(emp);
 
@@ -237,9 +244,10 @@ public class EmployeeDao extends EmployeeConnectDao{
 			System.out.println("last name :: " + empLastName);
 			System.out.println("email id :: " + empEmailId);
 			System.out.println("phone number :: " + empPhoneNumber);
-			System.out.println("department :: " + deptId);
+			System.out.println("department :: " + deptName);
 			System.out.println("desgination :: " + empDesg);
 			System.out.println("experience :: " + empExperience);
+			System.out.println("role :: "+roleName);
 
 		} catch (SQLException e) {
 			System.out.println("SQLException while creating statement :: "
@@ -272,29 +280,11 @@ public class EmployeeDao extends EmployeeConnectDao{
 	public int insertEmployee(String empId, String empFirstName,
 			String empMiddleName, String empLastName, String empEmailId,
 			String empPhoneNumber, String deptId, String empDesg,
-			String empExperience, String password) {
+			String empExperience, String password, String roleId) {
 		int rowsUpdated = 0;
 		Connection connection = getConnection();
 		Statement statement = null;
-		String insertQuery = "insert into employee_jobs_portal.dbo.employee (emp_id,emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience, password) values ('"
-				+ empId
-				+ "','"
-				+ empFirstName
-				+ "','"
-				+ empMiddleName
-				+ "','"
-				+ empLastName
-				+ "','"
-				+ empEmailId
-				+ "','"
-				+ empPhoneNumber
-				+ "','"
-				+ deptId
-				+ "','"
-				+ empDesg
-				+ "','"
-				+ empExperience
-				+ "','" + password + "');";
+		String insertQuery = "insert into employee_jobs_portal.dbo.employee (emp_id,emp_firstname, emp_middlename, emp_lastname, emp_emailid, emp_phonenumber, dept_id, emp_desg, emp_experience, password, role_id) values ('"+empId+"','"+empFirstName+"','"+empMiddleName+"','"+empLastName+"','"+empEmailId+"','"+empPhoneNumber+"','"+deptId+"','"+empDesg+"','"+empExperience+"','"+password+"','"+roleId+"');";
 		try {
 			statement = connection.createStatement();
 			rowsUpdated = statement.executeUpdate(insertQuery);
@@ -332,7 +322,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 
 	public int updateEmployee(String empId, String empFirstName,
 			String empMiddleName, String empLastName, String empEmailId,
-			String phoneNumber, String deptId, String empDesg, String empExp) {
+			String phoneNumber, String deptId, String empDesg, String empExp, String roleId) {
 
 		int rowsUpdated = 0;
 		Connection connection = getConnection();
@@ -351,7 +341,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 				+ empDesg
 				+ "', emp_experience='"
 				+ empExp
-				+ "',dept_id='" + deptId + "' where emp_id ='" + empId + "';";
+				+ "',dept_id='" + deptId + "', role_id='"+roleId+"' where emp_id ='" + empId + "';";
 		try {
 			statement = connection.createStatement();
 			rowsUpdated = statement.executeUpdate(updateQuery);
@@ -402,8 +392,8 @@ public class EmployeeDao extends EmployeeConnectDao{
 		return false;
 	}
 
-	public String validatePassword(LoginForm loginForm) {
-		String targetPage = "login.jsp";
+	public boolean validatePassword(LoginForm loginForm) {
+		boolean profileExists = false;
 		String loginEmpId = loginForm.getEmpId();
 
 		if (loginEmpId != null) {
@@ -418,14 +408,10 @@ public class EmployeeDao extends EmployeeConnectDao{
 
 					EmployeeDao employeeDaoObj = new EmployeeDao();
 
-					boolean profileExists = employeeDaoObj
+					 profileExists = employeeDaoObj
 							.validateProfileExists(employeeObj.getEmpId());
 
-					if (profileExists) {
-						targetPage = "employeelist.jsp";
-					} else {
-						targetPage = "login.jsp";
-					}
+				
 
 				}
 
@@ -433,7 +419,7 @@ public class EmployeeDao extends EmployeeConnectDao{
 
 		}
 
-		return targetPage;
+		return profileExists;
 	}
 
 	public static void main(String[] args) {

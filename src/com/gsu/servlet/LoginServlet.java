@@ -26,6 +26,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+
 		String empId = request.getParameter("empId");
 		String password = request.getParameter("password");
 
@@ -54,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		EmployeeDao employeeDaoObj = new EmployeeDao();
-		String targetPage = employeeDaoObj.validatePassword(loginForm);
+		boolean passwordValid = employeeDaoObj.validatePassword(loginForm);
 		Employee employeeObj = employeeDaoObj.selectEmployee(empId);
 		String empName = "";
 
@@ -67,39 +69,36 @@ public class LoginServlet extends HttpServlet {
 					+ " "
 					+ (employeeObj.getEmpLastName() != null ? employeeObj
 							.getEmpLastName() : "");
-			System.out.println("Target Page :: " + targetPage);
+
+		}
+
+		String targetPage = "jsp/login.jsp";
+		if (passwordValid) {
+			session.setAttribute("userLoggedIn", "true");
+			session.setAttribute("empId", empId);
+			session.setAttribute("empName", empName);
+			RoleDao roleDaoObj = new RoleDao();
+			Role roleObj = roleDaoObj.selectRole(empId);
+			session.setAttribute("role", roleObj.getRoleName());
+
+			if ("manager".equals(roleObj.getRoleName())) {
+				targetPage = "/ListProjectByManager";
+			} else {
+				targetPage = "/InitalizeTimeSheet";
+			}
 		}
 
 		request.setAttribute("empId", empId);
 		RequestDispatcher requestDispatcherObj = request
-				.getRequestDispatcher("/jsp/" + targetPage);
+				.getRequestDispatcher(targetPage);
 		String failureMessage = "Login was unsuccessful. Please try again";
-		if ("login.jsp".equals(targetPage)) {
+		if ("jsp/login.jsp".equals(targetPage)) {
 
 			request.setAttribute("empId", empId);
 			request.setAttribute("failureMessage", failureMessage);
-			requestDispatcherObj.forward(request, response);
-		} else {
-			HttpSession session = request.getSession();
-			
-			
-			session.setAttribute("userLoggedIn", "true");
-			session.setAttribute("empId", empId);
-			session.setAttribute("empName", empName);
-			
-			RoleDao roleDaoObj = new RoleDao();
-			Role roleObj = roleDaoObj.selectRole(empId);
-			session.setAttribute("role",roleObj.getRoleName());
 
-			
-			if ("employeelist.jsp".equalsIgnoreCase(targetPage)) {
-				EmployeeDao emplyeeDaoObj = new EmployeeDao();
-				List<Employee> employeeList = employeeDaoObj
-						.selectAllEmployee();
-				request.setAttribute("empList", employeeList);
-			}
-			requestDispatcherObj.forward(request, response);
 		}
+		requestDispatcherObj.forward(request, response);
 
 	}
 
